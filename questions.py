@@ -33,10 +33,10 @@ arr2= [1,0,2,0,3]
 
 j=0
 
-for i in range(len(arr2)):
+for i in range(1,len(arr2)):
     if arr2[i] != 0:
         arr2[i],arr2[j] = arr2[j],arr[i]
-        j+=1
+        j+=1  #tracks where next non-zero should go.
 
 print( "after pushed zeroes :" , arr2)    
         
@@ -46,7 +46,7 @@ arr3 =[1,1,2,2,3,3,3,4,4]
 
 j=0
 
-for i in range(len(arr3)):
+for i in range(1,len(arr3)):
     if arr3[i]!=arr3[j]:
         j+=1
         arr3[j] = arr3[i]
@@ -87,6 +87,20 @@ for num in range(len(arr6)):
         break
 
 print("first repeating element : " , first_repeating)
+
+#first repeating element using set
+
+arrA = [1,2,3,2,5]
+
+seen = set()
+
+for num in arrA:
+
+    if num in seen:
+        print(num)
+        break
+
+    seen.add(num)
 
 # first non repeating element 
 
