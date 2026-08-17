@@ -210,6 +210,83 @@ def first_repeating_dict(nums):
         freq[num] = 1
 
 
+# ---------------- BATCH 4: Arrays — FUNDAMENTALS ----------------
+
+# Q1. Given a list of numbers, return the second largest number.
+# Do it manually with a loop, without sorting.
+# nums = [10, 5, 20, 8, 20] -> expected 10
+def second_largest(nums):
+
+    second_largest = float('-inf')
+    largest = float('-inf')
+
+    for num in nums:
+        if num > largest:
+            second_largest = largest
+            largest = num
+        elif num > second_largest and num != largest:
+            second_largest = num
+    return second_largest
+    
+
+
+# Q2. Given a list of numbers, return True if it is sorted in non-decreasing
+# order, otherwise return False.
+# nums = [1, 2, 2, 4, 5] -> expected True
+# nums = [1, 3, 2, 4] -> expected False
+def is_sorted(nums):
+    for i in range(1, len(nums)):
+        if nums[i] < nums[i - 1]:
+            return False
+    return True
+   
+
+
+# Q3. Given a list, rotate it left by 1 position and return it.
+# nums = [1, 2, 3, 4, 5] -> expected [2, 3, 4, 5, 1]
+def left_rotate_by_one(nums):
+    if not nums:
+        return nums  # Handle empty list    
+    first = nums[0]
+    nums.pop(0)
+
+    nums.append(first)
+    return nums
+    
+
+# Q4. Given a list of numbers, return the minimum and maximum as a tuple
+# (minimum, maximum). Do it manually with one loop.
+# nums = [7, 2, 9, 4, 1] -> expected (1, 9)
+def min_and_max(nums):
+    if not nums:
+        return None  # Handle empty list
+    minimum = nums[0]
+    maximum = nums[0]
+    for num in nums:
+        if num < minimum:
+            minimum = num
+        elif num > maximum:
+            maximum = num
+    return (minimum, maximum)
+
+    
+
+
+# Q5. Given a list of numbers, count how many are even and how many are odd.
+# Return the result as a tuple: (even_count, odd_count).
+# nums = [1, 2, 3, 4, 5, 6] -> expected (3, 3)
+def count_even_odd(nums):
+    even_count = 0
+    odd_count = 0
+    for num in nums:
+        if num % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+    return (even_count, odd_count)
+    
+
+
 def main():
     print(sum_and_average([1, 2, 9, 2, 5]))
     print(find_largest([1, 2, 9, 2, 5]))
@@ -228,6 +305,13 @@ def main():
     print(merge_and_sum({"x": 1, "y": 2}, {"y": 3, "z": 4}))
     print(invert_dict({"a": 1, "b": 2}))
     print(first_repeating_dict([4, 5, 6, 5, 4]))
+
+    print(second_largest([10, 5, 20, 8, 20]))
+    print(is_sorted([1, 2, 2, 4, 5]))
+    print(is_sorted([1, 3, 2, 4]))
+    print(left_rotate_by_one([1, 2, 3, 4, 5]))
+    print(min_and_max([7, 2, 9, 4, 1]))
+    print(count_even_odd([1, 2, 3, 4, 5, 6]))
 
 
 if __name__ == "__main__":

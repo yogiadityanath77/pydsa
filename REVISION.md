@@ -79,3 +79,5 @@ Batch sequence (ground up):
 | 2026-08-03 | Batch 2 (tuples & sets) | Assigned | swap_first_last, sum_tuple, set_intersection, has_duplicates, count_in_tuple |
 | 2026-08-16 | Batch 2 (tuples & sets) | Passed | swap_first_last, sum_tuple, set_intersection, has_duplicates, count_in_tuple — all correct |
 | 2026-08-16 | Batch 3 (dicts) | Passed | word_frequency, key_with_max_value, merge_and_sum, invert_dict, first_repeating_dict — all correct |
+| 2026-08-17 | Batch 4 (arrays fundamentals) | Assigned | second_largest, is_sorted, left_rotate_by_one, min_and_max, count_even_odd |
+| 2026-08-18 | Batch 4 (arrays fundamentals) | Passed | second_largest, is_sorted, left_rotate_by_one, min_and_max, count_even_odd - all correct |
