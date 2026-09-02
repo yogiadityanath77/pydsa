@@ -147,7 +147,7 @@ class LinkedList:
         temp = self.head.next   # first node already counted
 
         while temp is not None:
-            if temp.value > maximum:
+            if temp.value > maximum.value:
                 maximum = temp.value
 
             temp = temp.next
@@ -163,7 +163,7 @@ class LinkedList:
         temp = self.head.next
 
         while temp is not None:
-            if temp.value < minimum:
+            if temp.value < minimum.value:
                 minimum = temp.value
 
             temp = temp.next
@@ -194,7 +194,7 @@ class LinkedList:
         temp.next = new_node
 
         if temp.next == self.tail:
-            self.tail == new_node
+            self.tail = new_node
 
         self.length +=1
         return True
@@ -294,8 +294,49 @@ class LinkedList:
 
         return temp
 
-    
+    def is_palindrome(self):
+        # empty or single node is trivially a palindrome
+        if self.length <= 1:
+            return True
 
+        slow = self.head
+        fast = self.head
+
+        # 1. find middle with slow/fast pointers
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+
+         # 2. reverse the second half starting at slow
+        prev = None
+        curr = slow
+        while curr is not None:
+            after = curr.next
+            curr.next = prev
+            prev = curr
+            curr = after
+      # prev is now the head of the reversed second half
+         # 3. walk both halves inward
+        left = self.head
+        right = prev
+        result = True
+        while right is not None:
+            if left.value != right.value:
+                result = False
+                break
+            left = left.next
+            right = right.next
+
+        # 4. (optional) restore the list by reversing the second half back
+        curr = prev
+        prev = None
+        while curr is not None:
+            after = curr.next
+            curr.next = prev
+            prev = curr
+            curr = after
+
+        return result
 
     
 
