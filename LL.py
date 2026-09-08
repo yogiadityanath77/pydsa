@@ -277,7 +277,8 @@ class LinkedList:
                 return None
 
             fast=fast.next
-
+#find_kth_from_end runs fast until it's None (fully off the end):
+  
         while fast:
             slow = slow.next
             fast = fast.next
@@ -338,5 +339,41 @@ class LinkedList:
 
         return result
 
+    
+    def remove_nth_from_end(self, n):
+
+        if n<0 or n>self.length:
+            return None
+
+        slow = self.head
+        fast = self.head
+# move fast n steps ahead
+        for _ in range(n):
+            fast = fast.next
+  # if fast fell off the end, the target is the head itself
+  
+        if fast is None:
+            return self.pop_first()
+        
+# slide both until fast is on the last node
+        while fast.next is not None:
+            fast = fast.next
+            slow = slow.next
+#stops one step earlier, when fast is  on the last node:
+        # slow.next is the node to remove
+        target = slow.next
+        slow.next = target.next
+        target.next = None
+
+             # if we removed the last node, fix the tail
+        if slow.next is None:
+            self.tail = slow
+
+        self.length -= 1
+        return target
+        
+
+
+        
     
 

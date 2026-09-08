@@ -1,8 +1,8 @@
 # Linked List DSA Checklist — Python
 
 **Current level:** Intermediate  
-**Progress:** All Level 0 helpers done. Level 1 insertion/deletion complete. Level 2 done except recursive reverse. Palindrome (O(1) space) done. Cycle detection done.  
-**Last updated:** 2026-09-01
+**Progress:** Singly LL fundamentals + palindrome + remove-nth-from-end done. DLL basics done (backward traverse / DLL reverse descoped for now).  
+**Last updated:** 2026-09-09
 
 ## 🟢 Level 0 — Linked List Basics
 
@@ -38,8 +38,9 @@
 - [x] Fix `remove()`: invalid index should be `index < 0 or index >= self.length`
 - [x] Make `append()` return `True` if `insert()` is expected to return a success flag
 - [ ] Make `reverse()` handle an empty list safely (still crashes on `temp.next` when `head` is `None`)
-- [ ] Fix `insert_after()`: `self.tail == new_node` is a comparison, should assign; tail-update condition is also wrong
-- [ ] Fix `find_kth_from_beginning()`: bounds should be `k < 1 or k > self.length` (k=0 currently under-walks)
+- [ ] Fix `insert_after()`: assign fixed, but guard `if temp.next == self.tail` is never true — should be `if new_node.next is None:`
+- [ ] Fix `find_kth_from_beginning()`: bounds should be `k < 1 or k > self.length` (still `k < 0`; k=0 returns head)
+- [ ] Fix `remove_nth_from_end()`: guard should be `n < 1` not `n < 0` (n=0 currently deletes the last node)
 
 ## 🟢 Level 2 — Core Interview Questions
 
@@ -62,7 +63,7 @@
 
 - [ ] Remove duplicates from a sorted linked list
 - [ ] Remove duplicates from an unsorted linked list
-- [ ] Remove the nth node from the end
+- [x] Remove the nth node from the end
 - [ ] Delete the middle node
 - [ ] Swap nodes in pairs
 - [ ] Rotate a linked list
@@ -74,17 +75,20 @@
 
 ## 🔵 Level 5 — Doubly Linked List
 
-- [ ] Implement a doubly linked-list `Node`
-- [ ] Create a doubly linked list
-- [ ] Traverse forward
-- [ ] Traverse backward
-- [ ] Insert at beginning
-- [ ] Insert at end
-- [ ] Insert at a given index
-- [ ] Delete from beginning
-- [ ] Delete from end
-- [ ] Delete a given node
-- [ ] Reverse a doubly linked list
+- [x] Implement a doubly linked-list `Node`
+- [x] Create a doubly linked list
+- [x] Traverse forward
+- [ ] Traverse backward (descoped — revisit if needed)
+- [x] Insert at beginning
+- [x] Insert at end
+- [x] Insert at a given index
+- [x] Delete from beginning
+- [x] Delete from end
+- [x] Delete a given node
+- [ ] Reverse a doubly linked list (descoped — revisit if needed)
+
+### DLL fixes to revisit
+- [ ] `prepend()` should `return True` (so `insert()` at index 0 returns a flag, not `None`)
 
 ## 🔵 Level 6 — Advanced Interview Problems
 
@@ -98,7 +102,7 @@
 - [x] Reverse Linked List
 - [x] Find Middle Node
 - [x] Kth Node from End
-- [ ] Remove Nth Node from End
+- [x] Remove Nth Node from End
 - [x] Detect Cycle
 - [ ] Find Cycle Start
 - [x] Palindrome Linked List
@@ -119,16 +123,21 @@
 
 ### Current assessment
 
-Singly linked-list fundamentals are **done**, and palindrome (O(1) space) is now implemented and verified — it correctly restores the list after comparing.
+Singly LL fundamentals + palindrome + remove-nth-from-end are done. DLL basics
+(build, forward traverse, all insert/delete, bidirectional `get`) are done;
+backward traverse and DLL reverse are descoped for now.
 
-**Is the checklist too much?** No — it is a full roadmap, not a daily to-do. Levels 4–6 are "later"; you are not behind.
-
-**Should you start DLL now, then do the hard questions?** Not yet. DLL (Level 5) is mostly mechanical prev/next bookkeeping and teaches little you don't already know. Remaining order:
+**Remaining before strings:**
 
 1. **Reverse recursively** (quick, cements the pattern)
-2. **Remove nth node from end** (two pointers with a gap)
-3. **Merge two sorted lists** (dummy node technique)
-4. **Then DLL** as a lighter change of pace
-5. Cycle start → Intersection → Reverse K-group
+2. **Merge two sorted lists** (dummy node technique) — still need this pattern
+3. Cycle start (142) → Intersection (160) → Reverse K-group (25)
 
-Also clear the outstanding bug fixes (`reverse` empty list, `insert_after` tail update, `find_kth_from_beginning` bounds) before the DLL detour.
+**Outstanding one-line bug fixes** (see "fixes to revisit" above):
+- `reverse()` — empty-list guard
+- `insert_after()` — tail-update guard should be `if new_node.next is None:`
+- `find_kth_from_beginning()` — `k < 1` not `k < 0`
+- `remove_nth_from_end()` — `n < 1` not `n < 0`
+
+After the merge-sorted + cycle/intersection trio, move to **strings** (easy set,
+then sliding window).
