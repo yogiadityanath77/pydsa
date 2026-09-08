@@ -193,7 +193,7 @@ class LinkedList:
         new_node.next = temp.next
         temp.next = new_node
 
-        if temp.next == self.tail:
+        if new_node.next is None:
             self.tail = new_node
 
         self.length +=1
@@ -227,6 +227,9 @@ class LinkedList:
 
 
     def reverse(self):
+
+        if self.head is None:
+            return
 
         temp = self.head
         self.head = self.tail
@@ -286,7 +289,7 @@ class LinkedList:
         return slow
 
     def find_kth_from_beginning(self,k):
-        if k < 0 or k > self.length:
+        if k < 1 or k > self.length:
             return None
 
         temp = self.head
@@ -342,7 +345,7 @@ class LinkedList:
     
     def remove_nth_from_end(self, n):
 
-        if n<0 or n>self.length:
+        if n<1 or n>self.length:
             return None
 
         slow = self.head

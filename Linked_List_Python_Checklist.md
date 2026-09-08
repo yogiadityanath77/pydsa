@@ -37,10 +37,10 @@
 - [x] Fix `pop_first()`: check `self.length == 0` after decrement
 - [x] Fix `remove()`: invalid index should be `index < 0 or index >= self.length`
 - [x] Make `append()` return `True` if `insert()` is expected to return a success flag
-- [ ] Make `reverse()` handle an empty list safely (still crashes on `temp.next` when `head` is `None`)
-- [ ] Fix `insert_after()`: assign fixed, but guard `if temp.next == self.tail` is never true — should be `if new_node.next is None:`
-- [ ] Fix `find_kth_from_beginning()`: bounds should be `k < 1 or k > self.length` (still `k < 0`; k=0 returns head)
-- [ ] Fix `remove_nth_from_end()`: guard should be `n < 1` not `n < 0` (n=0 currently deletes the last node)
+- [x] Make `reverse()` handle an empty list safely (early `return` when `head is None`)
+- [x] Fix `insert_after()`: tail-update guard is now `if new_node.next is None:`
+- [x] Fix `find_kth_from_beginning()`: bounds now `k < 1 or k > self.length`
+- [x] Fix `remove_nth_from_end()`: guard now `n < 1`
 
 ## 🟢 Level 2 — Core Interview Questions
 
@@ -133,11 +133,9 @@ backward traverse and DLL reverse are descoped for now.
 2. **Merge two sorted lists** (dummy node technique) — still need this pattern
 3. Cycle start (142) → Intersection (160) → Reverse K-group (25)
 
-**Outstanding one-line bug fixes** (see "fixes to revisit" above):
-- `reverse()` — empty-list guard
-- `insert_after()` — tail-update guard should be `if new_node.next is None:`
-- `find_kth_from_beginning()` — `k < 1` not `k < 0`
-- `remove_nth_from_end()` — `n < 1` not `n < 0`
+All outstanding one-line bug fixes are now done (`reverse` empty guard,
+`insert_after` tail guard, `find_kth_from_beginning` bounds,
+`remove_nth_from_end` guard).
 
 After the merge-sorted + cycle/intersection trio, move to **strings** (easy set,
 then sliding window).
