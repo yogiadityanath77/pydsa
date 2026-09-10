@@ -169,10 +169,11 @@ def reverse_vowels(s):
         while left < right and chars[right] not in vowels:
             right -= 1
 
-        chars[left], chars[right] = chars[right], chars[left]
+        if left < right:
+            chars[left], chars[right] = chars[right], chars[left]
 
-        left += 1
-        right -= 1
+            left += 1
+            right -= 1
 
     return "".join(chars)
 
