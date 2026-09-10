@@ -177,6 +177,64 @@ def reverse_vowels(s):
 
     return "".join(chars)
 
+# sliding window
+
+def max_sum_arrays(nums,k):
+
+    window_sum = 0
+
+    #build first window
+
+    for i in range(k):
+        window_sum += nums[i]
+
+    max_sum = window_sum
+
+    #slide window 
+
+    for i in range(k,len(nums)):
+        window_sum += nums[i]
+        window_sum -= nums[i-k]
+
+        max_sum = max(max_sum,window_sum)
+
+    return max_sum
+
+def max_vowels(s,k):
+
+    vowels = 'aeiou'
+
+    count = 0
+
+    # first window
+
+    for i in range(k,len(s)):
+
+        if s[i] in vowels:
+            count += 1
+
+    max_count = count
+
+    #slide window
+
+    for i in range(k,len(s)):
+
+        # add incoming character 
+        if s[i] in vowels:
+            count += 1
+
+        # Remove outgoing character
+
+        if s[i-k] in vowels:
+            count -=1
+
+        max_count = max(max_count, count)
+
+    return max_count
+
+       
+
+
 
 
 
