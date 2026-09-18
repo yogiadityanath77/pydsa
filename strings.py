@@ -267,7 +267,7 @@ def longest_at_most_k_distinct(s, k):
         # If we have too many distinct characters,
         # shrink the window from the left
 
-        while len(freq) > k:
+        while len(freq) > k: # len(freq) gives number of DISTINCT characters
             freq[s[left]] -= 1
 
             if freq[s[left]] == 0:
@@ -280,6 +280,166 @@ def longest_at_most_k_distinct(s, k):
         max_length = max(max_length,window_length)
 
     return max_length
+
+def count_at_most_K(s,k):
+    freq = {}
+    left = 0
+    count = 0
+
+    for right in range(len(s)):
+
+        if s[right]  in freq:
+            freq[s[right]] += 1
+        else:
+            freq[s[right]] =1 
+
+        while len(freq)>k: # len(freq) gives number of DISTINCT characters
+            freq[s[left]] -= 1
+
+            if freq[s[left]] == 0:
+                del freq[s[left]]
+
+            left +=1
+
+        count += right - left + 1
+
+    return count
+
+def count_exactly_k(s,k):
+
+    if k<0:
+        return 0
+
+    return count_at_most_K(s,k) - count_at_most_K(s,k-1)
+
+#permutation in string
+def check_inclusion(s1,s2):
+
+    if len(s1)> len(s2):
+        return False
+
+    freq1 = [0]*26
+    freq2 = [0]*26
+
+    #frequency of s1
+
+    for ch in s1:
+        index = ord(ch) - ord('a')
+        freq1[index] += 1
+
+    k = len(s1)
+
+    for i in range(k):
+        index = ord(s2[i]) - ord('a')
+        freq2[index] += 1
+
+    if freq1 == freq2:
+        return True
+
+    for i in range(k,len(s2)):
+
+        index=ord(s2[i]) - ord('a')
+        freq2[index] += 1
+
+        index=ord(s2[i-k]) - ord('a')
+        freq2[index] -= 1
+
+        if freq1 == freq2:
+            return True
+
+    return False
+
+
+def find_anagrams(s,p):
+
+    if len(p) > len(s):
+        return []
+
+    freq_p = [0]*26
+    freq_window= [0]*26
+
+    # Frequency of pattern p
+    for ch in p:
+        index = ord(ch) - ord('a')
+        freq_p[index] += 1
+
+    k = len(p)
+
+    # First window
+    for i in range(k):
+        index = ord(s[i]) - ord('a')
+        freq_window[index] += 1
+
+    result = []
+
+     # Check first window
+    if freq_window == freq_p:
+        result.append(0)
+
+     # Slide window
+    for i in range(k,len(s)):
+
+        # Add incoming character
+        index = ord(s[i]) - ord('a')
+        freq_window[index] += 1
+
+        # Remove outgoing character
+        index = ord(s[i-k]) - ord('a')
+        freq_window[index] -= 1
+
+        # Compare
+        if freq_p == freq_window:
+            start = i - k + 1  #understand
+            result.append(start)
+
+    return result
+
+
+#You can replace at most k characters. 
+# Find the length of the longest substring that can be turned 
+# into a string of all the same character.
+
+# replacements needed
+# =
+# window length - frequency of most frequent character
+def character_replacement(s, k):
+
+    freq = {}
+
+    left=0
+    max_freq = 0
+    max_length = 0
+    
+
+    for right in range(len(s)):
+
+        if s[right] in freq:
+            freq[s[right]] += 1
+        else:
+            freq[s[right]] = 1
+
+        max_freq = max(max_freq,freq[s[right]])
+
+        #window_length = right - left + 1
+        while ( right - left + 1) - max_freq > k:
+            freq[s[left]] -= 1
+            left += 1
+
+
+        window_length = right - left + 1
+        max_length = max(max_length,window_length)
+
+    return max_length
+
+
+
+
+        
+
+
+
+
+
 
 
 

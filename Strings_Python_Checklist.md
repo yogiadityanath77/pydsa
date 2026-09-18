@@ -2,12 +2,12 @@
 
 **Current level:** Beginner → early pattern work  
 **Progress:** String basics and the two-pointer set are done (anagram, palindrome,
-valid palindrome, reverse vowels). Fixed-size sliding window is done and the
-`max_vowels` bug is fixed. Variable-size sliding window has started (longest
-unique substring, longest substring with at most k distinct chars). The big
-gaps are **window + frequency map, substring/prefix problems, and string
-building/parsing**.  
-**Last updated:** 2026-09-18
+valid palindrome, reverse vowels). Fixed-size and variable-size sliding window
+are both done, including exactly-k-distinct (via the at-most-k trick),
+permutation-in-string, find-all-anagrams (window + frequency array), and
+longest repeating character replacement. The big gaps are now **string
+building/parsing and the remaining Level 1 easy classics**.  
+**Last updated:** 2026-09-19
 
 Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Linked_List_Python_Checklist.md`
 
@@ -70,14 +70,15 @@ Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Linked_List_Python_C
 - [x] Max sum of `k` consecutive elements (in `strings.py`, on a list)
 - [x] Max vowels in any substring of length `k`
 - [ ] Average of every window of size `k`
-- [ ] Find all anagrams of a pattern in a string (fixed window + frequency compare)
-- [ ] Permutation in string
+- [x] Find all anagrams of a pattern in a string (`find_anagrams` — fixed window + 26-slot frequency array)
+- [x] Permutation in string (`check_inclusion` — fixed window + 26-slot frequency array)
 
 ### Variable size
 - [x] Longest substring without repeating characters
 - [x] Longest substring with at most `k` distinct characters
-- [ ] Longest repeating character replacement
+- [x] Longest repeating character replacement (`character_replacement`)
 - [ ] Longest substring with exactly `k` distinct characters
+- [x] Count substrings with exactly `k` distinct characters (`count_exactly_k` — via `count_at_most_K(k) - count_at_most_K(k-1)`)
 - [ ] Smallest window containing all characters of another string (hard, later)
 
 ## 🟡 Level 4 — Hashing Patterns
@@ -119,6 +120,14 @@ Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Linked_List_Python_C
 
 - [x] `strings.py` — `max_vowels()`: first-window loop fixed to
       `for i in range(k)`. Verified: `max_vowels("abciiidef", 3)` now returns 3.
+- [x] `strings.py` — `find_anagrams()`: fixed `freq_window += 1` to
+      `freq_window[index] += 1`. Verified: `find_anagrams("cbaebabacd", "abc")`
+      returns `[0, 6]`.
+- [x] `strings.py` — `character_replacement()`: fixed the `else`-branch
+      initialization (`= 1` instead of `-= 1`) and the shrink direction
+      (`left += 1` instead of `left -= 1`). Verified:
+      `character_replacement("ABAB", 2)` returns `4`,
+      `character_replacement("AABABBA", 1)` returns `4`.
 - [ ] `strings.py` — `is_anagram_using_Frequency_array()` assumes lowercase a–z.
       Note the assumption in a comment, or guard it, so it is not reused blindly
       on mixed-case or non-letter input
@@ -138,8 +147,9 @@ Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Linked_List_Python_C
 - [x] Reverse String
 - [x] Reverse Vowels of a String
 - [x] Longest Substring Without Repeating Characters
-- [ ] Longest Repeating Character Replacement
-- [ ] Find All Anagrams in a String
+- [x] Longest Repeating Character Replacement
+- [x] Permutation in String
+- [x] Find All Anagrams in a String
 - [ ] Group Anagrams
 - [ ] Longest Common Prefix
 - [ ] Valid Parentheses
@@ -157,7 +167,8 @@ Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Linked_List_Python_C
 - [x] Two pointers — skip characters failing a predicate
 - [x] Sliding window — fixed size
 - [x] Sliding window — variable size (expand right, shrink left)
-- [ ] Window + frequency map compared against a target map
+- [x] "At most k" trick to derive "exactly k" (`count_at_most_K(k) - count_at_most_K(k-1)`)
+- [x] Window + frequency map compared against a target map (`check_inclusion`)
 - [ ] Stack for matching / adjacent-pair elimination
 - [ ] Expand around centre (palindromic substrings)
 - [ ] Building strings efficiently with a list + `join()`
@@ -171,16 +182,25 @@ palindrome with alphanumeric filtering, reverse via list, and reverse vowels are
 all done — and reverse vowels in particular is the one people usually get wrong
 on the convergence edge case, which is now fixed. Both anagram approaches (hash
 map and 26-slot frequency array) are written, which is the right way to learn it.
-Sliding window is also solid now: fixed-size (`max_sum_arrays`, fixed `max_vowels`)
-and the two core variable-size templates (`longest_unique_substring`,
-`longest_at_most_k_distinct`) are all written and verified.
+Sliding window is now comfortably the strongest area: fixed-size
+(`max_sum_arrays`, `max_vowels`), both variable-size templates
+(`longest_unique_substring`, `longest_at_most_k_distinct`), the at-most-k →
+exactly-k counting trick (`count_exactly_k`), and all three window +
+frequency-array matching problems (`check_inclusion` for permutation-in-string,
+`find_anagrams`, and `character_replacement` for longest repeating character
+replacement) are written and verified. All of Level 3 (Sliding Window) is now
+clear except "longest substring with exactly k distinct" (the counting
+variant is done, the substring-length variant isn't) and the Hard-tier minimum
+window substring.
 
 **The real gaps, in priority order:**
 
-1. **Window + frequency map** — Find All Anagrams, Permutation in String. This
-   is where the anagram work and the window work combine.
-2. **String building / parsing** — compression, valid parentheses, Roman
-   numerals. A different muscle from the pointer work, and asked constantly.
+1. **String building / parsing** (Level 5) — compression, valid parentheses,
+   Roman numerals. A different muscle from the pointer/window work, and
+   asked constantly in interviews.
+2. **Hashing patterns** (Level 4) — group anagrams, ransom note, top-k
+   frequent words. Natural next step given the frequency-map fluency already
+   built up.
 3. **Python string methods** — split / join / slicing. Everything so far is
    manual loops, which is good for learning but slow to write under time
    pressure.
@@ -189,9 +209,8 @@ and the two core variable-size templates (`longest_unique_substring`,
 
 **Suggested order:**
 
-> Longest repeating character replacement → find all anagrams → group
-> anagrams → valid parentheses → string compression → longest palindromic
-> substring
+> Group anagrams → valid parentheses → string compression → longest
+> palindromic substring → minimum window substring
 
 Sliding window is shared with the arrays checklist — clearing it here clears the
 matching gap there too.
