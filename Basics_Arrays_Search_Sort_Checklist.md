@@ -6,7 +6,7 @@ and its variants are strong. Basic sorts done. The big gaps are **sliding window
 prefix sum, Kadane, matrices, and merge/quick sort**.  
 **Last updated:** 2026-09-09
 
-Companion file: `Linked_List_Python_Checklist.md`
+Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`
 
 ---
 

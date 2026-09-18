@@ -4,6 +4,8 @@
 **Progress:** Singly LL fundamentals + palindrome + remove-nth-from-end done. DLL basics done (backward traverse / DLL reverse descoped for now).  
 **Last updated:** 2026-09-09
 
+Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Strings_Python_Checklist.md`
+
 ## 🟢 Level 0 — Linked List Basics
 
 - [x] Create a `Node`

@@ -208,7 +208,7 @@ def max_vowels(s,k):
 
     # first window
 
-    for i in range(k,len(s)):
+    for i in range(k):
 
         if s[i] in vowels:
             count += 1
@@ -232,7 +232,54 @@ def max_vowels(s,k):
 
     return max_count
 
-       
+def longest_unique_substring(s):
+
+    seen = set()
+    left = 0
+    max_length = 0
+
+    for right in range(len(s)):
+
+        while s[right] in seen: #Sometimes you need to remove multiple characters, so we use WHILE
+            seen.remove(s[left]) #removes the oldest character in the window.
+            left +=1 #moves the left boundary.
+
+        seen.add(s[right]) #adds the new character.
+
+        window_length = right - left + 1 # FORMULA
+        max_length = max(max_length,window_length)
+
+    return max_length      
+
+def longest_at_most_k_distinct(s, k):
+
+    freq = {}
+    left = 0 
+    max_length = 0
+
+    for right in range(len(s)):
+
+        if s[right] in freq:
+            freq[s[right]] += 1
+        else:
+            freq [s[right]] = 1
+
+        # If we have too many distinct characters,
+        # shrink the window from the left
+
+        while len(freq) > k:
+            freq[s[left]] -= 1
+
+            if freq[s[left]] == 0:
+                del freq[s[left]]
+
+            left += 1
+
+        # Current window is valid
+        window_length = right - left + 1
+        max_length = max(max_length,window_length)
+
+    return max_length
 
 
 
