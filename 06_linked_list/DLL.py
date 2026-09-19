@@ -66,6 +66,8 @@ class DoublyLinkedList:
 
         self.length += 1
 
+        return True
+
     def pop_first(self):
         if self.length == 0:
             return None

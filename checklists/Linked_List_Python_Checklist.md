@@ -90,7 +90,7 @@ Companion files: `Basics_Arrays_Search_Sort_Checklist.md`, `Strings_Python_Check
 - [ ] Reverse a doubly linked list (descoped — revisit if needed)
 
 ### DLL fixes to revisit
-- [ ] `prepend()` should `return True` (so `insert()` at index 0 returns a flag, not `None`)
+- [x] `prepend()` should `return True` (so `insert()` at index 0 returns a flag, not `None`)
 
 ## 🔵 Level 6 — Advanced Interview Problems
 

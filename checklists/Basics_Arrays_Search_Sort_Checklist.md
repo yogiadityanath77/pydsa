@@ -4,9 +4,10 @@
 **Progress:** Python basics and array fundamentals are well covered. Binary search
 and its variants are strong. Basic sorts done. The big gaps are **sliding window,
 prefix sum, Kadane, matrices, and merge/quick sort**.  
-**Last updated:** 2026-09-09
+**Last updated:** 2026-09-19
 
-Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`
+Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
+Level 4 practice file: `02_arrays/arrays_level4.py`
 
 ---
 
@@ -114,27 +115,49 @@ Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md
 
 ## 🔴 Level 4 — Arrays: Patterns Not Yet Started
 
+Practice file: `02_arrays/arrays_level4.py`. Every item below has a stub and tests there,
+in the same order. **E / M** = Easy / Medium.
+
+### Sliding window — fixed size
+- [ ] Max sum of k consecutive elements (E) — redo on arrays; string version is `max_sum_arrays` in `strings.py`
+- [ ] Maximum average subarray I (LC 643 · E)
+- [ ] Maximum points you can obtain from cards (LC 1423 · M) — window over the part you *don't* take
+
+### Sliding window — variable size
+- [ ] Smallest subarray with sum ≥ target (LC 209 · M)
+- [ ] Longest subarray with sum = k, **positives only** (M)
+- [ ] Max consecutive ones III — flip at most k zeroes (LC 1004 · M)
+- [ ] Fruit into baskets (LC 904 · M) — at most 2 distinct; redo of `longest_at_most_k_distinct` on arrays
+- [ ] Binary subarrays with sum (LC 930 · M) — at-most trick: `atMost(k) - atMost(k-1)`
+
 ### Prefix sum
-- [ ] Build a prefix-sum array
-- [ ] Range sum queries in O(1)
-- [ ] Count subarrays with sum k
-- [ ] Equilibrium / pivot index
+- [ ] Build a prefix-sum array + range sum in O(1) (LC 303 · E)
+- [ ] Equilibrium / pivot index (LC 724 · E)
+- [ ] Count subarrays with sum k (LC 560 · M) — prefix sum + hashmap of counts
+- [ ] Longest subarray with sum = k, **with negatives** (M) — prefix sum + first-seen index
+- [ ] Product of array except self (LC 238 · M) — prefix and suffix products
 
 ### Kadane's algorithm
-- [ ] Maximum subarray sum
-- [ ] Maximum subarray sum with indices returned
-- [ ] Maximum product subarray
-
-### Sliding window
-- [ ] Fixed-size window: max sum of k consecutive elements
-- [ ] Fixed-size window: average of every window of size k
-- [ ] Variable window: smallest subarray with sum ≥ target
-- [ ] Variable window: longest subarray with at most k distinct values
-- [ ] Max consecutive ones (and the "flip at most k zeroes" variant)
+- [ ] Maximum subarray sum (LC 53 · M)
+- [ ] Maximum subarray sum with indices returned (M)
+- [ ] Maximum product subarray (LC 152 · M) — track max **and** min
 
 ### Stock / greedy scan
-- [ ] Best time to buy and sell stock (one pass, running min)
-- [ ] Best time to buy and sell stock II (greedy)
+- [ ] Best time to buy and sell stock (LC 121 · E) — one pass, running min
+- [ ] Best time to buy and sell stock II (LC 122 · M) — add every rise
+
+### 🧭 Which pattern to use
+- **Contiguous subarray and all numbers positive** → sliding window (the sum only
+  grows as the window grows, so shrinking from the left is safe).
+- **Negatives or zeros allowed** → prefix sum + hashmap. A window can't know
+  when to shrink.
+- **"Count subarrays with exactly k …"** → `atMost(k) - atMost(k-1)`, the same
+  trick as `count_exactly_k` in `strings.py`.
+- **"Best sum ending here"** → Kadane: restart the running sum when it would
+  drag the next element down.
+- Longest subarray with sum = k is in the checklist twice on purpose: once with
+  positives (window) and once with negatives (prefix sum). Solving both is the
+  clearest way to see the difference.
 
 ## 🔵 Level 5 — 2D Arrays / Matrices (not started)
 
@@ -252,9 +275,11 @@ Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md
 - [x] Hash set for membership / complement lookup
 - [x] Binary search on a sorted array
 - [x] Binary search with an `answer` variable (bounds/occurrence variants)
-- [ ] Sliding window — fixed size
-- [ ] Sliding window — variable size
+- [ ] Sliding window — fixed size (on arrays; strings version done)
+- [ ] Sliding window — variable size (on arrays; strings version done)
+- [ ] At-most-k trick for counting exactly k (on arrays)
 - [ ] Prefix sum
+- [ ] Prefix sum + hashmap (counts / first-seen index / remainders)
 - [ ] Kadane / running-best scan
 - [ ] Divide and conquer (merge sort, quick sort)
 - [ ] Binary search on the answer space
