@@ -33,9 +33,9 @@ arr2= [1,0,2,0,3]
 
 j=0
 
-for i in range(1,len(arr2)):
+for i in range(len(arr2)):
     if arr2[i] != 0:
-        arr2[i],arr2[j] = arr2[j],arr[i]
+        arr2[i],arr2[j] = arr2[j],arr2[i]
         j+=1  #tracks where next non-zero should go.
 
 print( "after pushed zeroes :" , arr2)    
@@ -166,7 +166,7 @@ i = 0
 j = 0
 merged = []
 
-while i < len(arr8) and j < len(arr8):
+while i < len(arr8) and j < len(arr9):
 
     if arr8[i] < arr9[j]:
         merged.append(arr8[i])

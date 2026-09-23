@@ -47,14 +47,14 @@ sum, and with linked list cycle-start.
 *Why first:* you are warm on sliding window. Finishing these 5 closes a topic
 completely, and 930 leads straight into prefix sums.
 
-- [ ] Fix `02_arrays/questions.py:169` — merge loop should check `len(arr9)`
-- [ ] Fix `02_arrays/questions.py:36-38` — move zeroes: start at 0, use `arr2[i]`
-- [ ] Fix `02_arrays/questions_explained.py:90` — move zeroes: start at 0
+- [x] Fix `02_arrays/questions.py:169` — merge loop should check `len(arr9)`
+- [x] Fix `02_arrays/questions.py:36-38` — move zeroes: start at 0, use `arr2[i]`
+- [x] Fix `02_arrays/questions_explained.py:90` — move zeroes: start at 0
 - [x] Fix `06_linked_list/DLL.py` — `prepend()` should `return True`
-- [ ] 209 · Minimum Size Subarray Sum · M
-- [ ] 1004 · Max Consecutive Ones III · M
+- [x] 209 · Minimum Size Subarray Sum · M
+- [x] 1004 · Max Consecutive Ones III · M
 - [ ] 904 · Fruit Into Baskets · M
-- [ ] 1423 · Maximum Points You Can Obtain from Cards · M
+- [x] 1423 · Maximum Points You Can Obtain from Cards · M
 - [ ] 930 · Binary Subarrays With Sum · M
 - [ ] Prefix-sum array + O(1) range sum (concept)
 - [ ] 303 · Range Sum Query – Immutable · E

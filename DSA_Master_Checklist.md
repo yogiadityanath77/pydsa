@@ -13,7 +13,8 @@ work is included here.
 **Detail files (the item-by-item notes stay there):**
 `checklists/Basics_Arrays_Search_Sort_Checklist.md` ·
 `checklists/Strings_Python_Checklist.md` · `checklists/Linked_List_Python_Checklist.md` ·
-`revision/REVISION.md` · step-by-step plan: `Phase2_Roadmap.md`
+`revision/REVISION.md` · step-by-step plan: `Phase2_Roadmap.md`  
+Problems solved so far, with LeetCode numbers: `LEETCODE.md`
 
 **Legend:** `[x]` done · `[ ]` not done · **E / M / H** = LeetCode difficulty ·
 ⚪ = optional stretch (Hard or rarely asked), not counted · numbers are LeetCode problem IDs.
@@ -32,7 +33,7 @@ Counts only the core items. ⚪ items are left out.
 | 1.3 | Sorting algorithms | 3 / 9 | 🟡 In progress |
 | 2.1 | Arrays & hashing | 7 / 20 | 🟡 In progress |
 | 2.2 | Two pointers | 4 / 12 | 🟡 In progress |
-| 2.3 | Sliding window | 7 / 12 | 🟢 Strong |
+| 2.3 | Sliding window | 10 / 12 | 🟢 Strong |
 | 2.4 | Prefix sum & Kadane | 0 / 10 | 🔴 Not started |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
 | 2.6 | Binary search | 3 / 17 | 🟡 In progress |
@@ -50,7 +51,7 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **44 / 330** (~13%) | |
+| | **Total** | **47 / 330** (~14%) | |
 
 ### Where you stand against the roadmaps
 
@@ -170,17 +171,17 @@ it in about 25–30 minutes.
 
 ### 2.3 Sliding window
 (Done in `strings.py`. The unticked items are array versions of the same templates.)
-- [x] 643 · Maximum Average Subarray I · E (max-sum-of-k version done)
+- [x] 643 · Maximum Average Subarray I · E (`02_arrays/sliding_window.py`)
 - [x] 1456 · Maximum Number of Vowels in a Substring of Given Length · M
 - [x] 3 · Longest Substring Without Repeating Characters · M
 - [x] 424 · Longest Repeating Character Replacement · M
 - [x] 567 · Permutation in String · M
 - [x] 438 · Find All Anagrams in a String · M
 - [x] 340 · Longest Substring with At Most K Distinct Characters · M 🔒
-- [ ] 209 · Minimum Size Subarray Sum · M
-- [ ] 1004 · Max Consecutive Ones III · M
+- [x] 209 · Minimum Size Subarray Sum · M
+- [x] 1004 · Max Consecutive Ones III · M
 - [ ] 904 · Fruit Into Baskets · M
-- [ ] 1423 · Maximum Points You Can Obtain from Cards · M
+- [x] 1423 · Maximum Points You Can Obtain from Cards · M
 - [ ] 930 · Binary Subarrays With Sum · M
 - [x] ⚪ 992 · Subarrays with K Different Integers · H (string version, `count_exactly_k`)
 - [ ] ⚪ 76 · Minimum Window Substring · H
@@ -519,11 +520,11 @@ bridges and articulation points · max flow · advanced geometry.
 
 ## 🐞 Open bugs carried over from the detail files
 
-Checked on 2026-09-20. The DLL one is fixed; three are still open:
+All fixed as of 2026-09-23:
 
-- [ ] `02_arrays/questions.py:169` — merge loop uses `j < len(arr8)`; should be `len(arr9)`
-- [ ] `02_arrays/questions.py:36-38` — move zeroes starts at `range(1, ...)` and swaps in `arr[i]` instead of `arr2[i]`
-- [ ] `02_arrays/questions_explained.py:90` — move zeroes still starts at `range(1, ...)`; should start at 0
+- [x] `02_arrays/questions.py:169` — merge loop uses `j < len(arr8)`; should be `len(arr9)`
+- [x] `02_arrays/questions.py:36-38` — move zeroes starts at `range(1, ...)` and swaps in `arr[i]` instead of `arr2[i]`
+- [x] `02_arrays/questions_explained.py:90` — move zeroes still starts at `range(1, ...)`; should start at 0
 - [x] `06_linked_list/DLL.py` — `prepend()` does not `return True`
 
 ---

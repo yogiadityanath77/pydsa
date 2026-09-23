@@ -1,13 +1,15 @@
 # Python Basics / Arrays / Searching / Sorting — DSA Checklist
 
-**Current level:** Fundamentals solid → ready for pattern work  
+**Current level:** Patterns in progress  
 **Progress:** Python basics and array fundamentals are well covered. Binary search
-and its variants are strong. Basic sorts done. The big gaps are **sliding window,
-prefix sum, Kadane, matrices, and merge/quick sort**.  
-**Last updated:** 2026-09-19
+and its variants are strong. Basic sorts done. **Sliding window is now done on
+arrays** (6 of 8 Level 4 window items, in `02_arrays/sliding_window.py`). The
+remaining gaps are **prefix sum, Kadane, matrices, modified binary search, and
+merge/quick sort**.  
+**Last updated:** 2026-09-23
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
-Level 4 practice file: `02_arrays/arrays_level4.py`
+Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`
 
 ---
 
@@ -113,20 +115,21 @@ Level 4 practice file: `02_arrays/arrays_level4.py`
 - [ ] Subarray with a given sum (hashmap of prefix sums)
 - [ ] Group anagrams
 
-## 🔴 Level 4 — Arrays: Patterns Not Yet Started
+## 🟡 Level 4 — Arrays: Patterns (in progress)
 
 Practice file: `02_arrays/arrays_level4.py`. Every item below has a stub and tests there,
-in the same order. **E / M** = Easy / Medium.
+in the same order. Sliding window solutions live in `02_arrays/sliding_window.py`.
+`[~]` = written but not yet correct — see 🐞 Fixes to revisit. **E / M** = Easy / Medium.
 
 ### Sliding window — fixed size
-- [ ] Max sum of k consecutive elements (E) — redo on arrays; string version is `max_sum_arrays` in `strings.py`
-- [ ] Maximum average subarray I (LC 643 · E)
-- [ ] Maximum points you can obtain from cards (LC 1423 · M) — window over the part you *don't* take
+- [x] Max sum of k consecutive elements (E) — `max_sum_arrays` in `sliding_window.py`
+- [x] Maximum average subarray I (LC 643 · E) — `max_average`
+- [x] Maximum points you can obtain from cards (LC 1423 · M) — `max_score`; window over the part you *don't* take
 
 ### Sliding window — variable size
-- [ ] Smallest subarray with sum ≥ target (LC 209 · M)
-- [ ] Longest subarray with sum = k, **positives only** (M)
-- [ ] Max consecutive ones III — flip at most k zeroes (LC 1004 · M)
+- [x] Smallest subarray with sum ≥ target (LC 209 · M) — `min_subarray_len`
+- [x] Longest subarray with sum = k, **positives only** (M) — `longest_subarray_sum_k`
+- [x] Max consecutive ones III — flip at most k zeroes (LC 1004 · M) — `longest_ones`
 - [ ] Fruit into baskets (LC 904 · M) — at most 2 distinct; redo of `longest_at_most_k_distinct` on arrays
 - [ ] Binary subarrays with sum (LC 930 · M) — at-most trick: `atMost(k) - atMost(k-1)`
 
@@ -147,6 +150,10 @@ in the same order. **E / M** = Easy / Medium.
 - [ ] Best time to buy and sell stock II (LC 122 · M) — add every rise
 
 ### 🧭 Which pattern to use
+- **Looking for a minimum** → start the answer at `float('inf')`, then convert it
+  back (usually to 0) at the end if nothing was found. Starting at 0 means
+  `min()` can never move. For a maximum, start at 0 only when the answer cannot
+  be negative — Kadane needs `float('-inf')` or `nums[0]`.
 - **Contiguous subarray and all numbers positive** → sliding window (the sum only
   grows as the window grows, so shrinking from the left is safe).
 - **Negatives or zeros allowed** → prefix sum + hashmap. A window can't know
@@ -230,14 +237,6 @@ in the same order. **E / M** = Easy / Medium.
 
 ## 🐞 Fixes to revisit
 
-- [ ] `questions.py` — merge sorted arrays: loop condition is
-      `while i < len(arr8) and j < len(arr8)` — the second should be `len(arr9)`
-      (already correct in `questions_explained.py`)
-- [ ] `questions.py` — move zeroes: loop starts at `range(1, len(arr2))` and
-      swaps against `arr[i]` instead of `arr2[i]`. Starting at index 1 breaks
-      the order of non-zero elements. The correct version is in `arrays.py`
-- [ ] `questions_explained.py` — move zeroes still starts at `range(1, ...)`;
-      should start at 0. (The `arr[i]` typo is already fixed there.)
 - [ ] `arrays.py` — the file is almost entirely commented out. Consider
       converting it to functions with a `main()`, like `search.py` and
       `sorting.py`
@@ -275,8 +274,8 @@ in the same order. **E / M** = Easy / Medium.
 - [x] Hash set for membership / complement lookup
 - [x] Binary search on a sorted array
 - [x] Binary search with an `answer` variable (bounds/occurrence variants)
-- [ ] Sliding window — fixed size (on arrays; strings version done)
-- [ ] Sliding window — variable size (on arrays; strings version done)
+- [x] Sliding window — fixed size (arrays: `sliding_window.py`; strings: `strings.py`)
+- [x] Sliding window — variable size (arrays: `longest_ones`, `longest_subarray_sum_k`; strings: `strings.py`)
 - [ ] At-most-k trick for counting exactly k (on arrays)
 - [ ] Prefix sum
 - [ ] Prefix sum + hashmap (counts / first-seen index / remainders)
@@ -290,27 +289,30 @@ in the same order. **E / M** = Easy / Medium.
 ### Current assessment
 
 **What is genuinely solid:** Python basics across lists, tuples, sets and dicts;
-array traversal and two-pointer work; hashing patterns; and binary search — the
-first/last-occurrence and lower/upper-bound variants in `search.py` are further
-than most people get at this stage.
+array traversal and two-pointer work; hashing patterns; binary search (the
+first/last-occurrence and lower/upper-bound variants in `03_searching/search.py`);
+and sliding window, both fixed and variable size, on strings *and* now on arrays.
 
 **The real gaps, in priority order:**
 
-1. **Sliding window** — the single highest-value missing pattern. Pairs
-   naturally with starting strings.
-2. **Prefix sum** — unlocks subarray-sum problems.
+1. **Finish sliding window** — only 904 (fruit into baskets) and 930 (binary
+   subarrays with sum, the at-most-k trick) are left in Level 4.
+2. **Prefix sum** — unlocks subarray-sum problems, and 560 is the one that shows
+   why a window stops working once negatives appear.
 3. **Kadane's algorithm** — one small problem, appears constantly.
 4. **Merge sort** — you already wrote the merge step for two sorted arrays;
    wrapping recursion around it is the natural next step, and it feeds directly
    into Sort List (LeetCode 148) on the linked-list side.
 5. **Modified binary search** (rotated array, peak element) — a direct extension
-   of what `search.py` already does.
+   of what `03_searching/search.py` already does.
 6. **2D arrays** — needed before any grid/matrix or graph work.
 
 **Suggested order:**
 
-> Merge sort → Kadane → prefix sum → sliding window (with strings) →
+> 904 + 930 → prefix sum → Kadane → stock (121, 122) → merge sort →
 > modified binary search → 2D arrays
 
-**Do not** start trees or graphs until sliding window, prefix sum, and 2D array
-traversal are comfortable — trees and graphs assume all three.
+The week-by-week version of this is in `Phase2_Roadmap.md`.
+
+**Do not** start trees or graphs until prefix sum and 2D array traversal are
+comfortable — trees and graphs assume both.

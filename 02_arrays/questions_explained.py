@@ -80,14 +80,16 @@ print("2. Is palindrome:", palindrome)
 # CONCEPTS  : Slow-fast (read/write) pointer pattern used heavily in
 #             in-place array partitioning problems.
 # COMPLEXITY: Time O(n). Space O(1).
-# NOTE      : In the original file this had a bug — it swapped with
-#             `arr[i]` (a leftover/undefined-in-scope name from
-#             problem 1) instead of `arr2[i]`. Fixed below.
+# NOTE      : This had two bugs, both fixed below — it swapped with
+#             `arr[i]` (a leftover name from problem 1) instead of
+#             `arr2[i]`, and the loop started at index 1, which skips
+#             a leading zero and breaks the order of the non-zero
+#             elements. The loop must start at 0.
 
 arr2 = [1, 0, 2, 0, 3]
 j = 0
 
-for i in range(1, len(arr2)):
+for i in range(len(arr2)):
     if arr2[i] != 0:
         arr2[i], arr2[j] = arr2[j], arr2[i]  # swap non-zero into place
         j += 1  # tracks where next non-zero should go
