@@ -3,10 +3,10 @@
 **Current level:** Patterns in progress  
 **Progress:** Python basics and array fundamentals are well covered. Binary search
 and its variants are strong. Basic sorts done. **Sliding window is now done on
-arrays** (6 of 8 Level 4 window items, in `02_arrays/sliding_window.py`). The
+arrays** — all 8 Level 4 window items solved, in `02_arrays/sliding_window.py`. The
 remaining gaps are **prefix sum, Kadane, matrices, modified binary search, and
 merge/quick sort**.  
-**Last updated:** 2026-09-23
+**Last updated:** 2026-09-24
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
 Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`
@@ -130,8 +130,8 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 - [x] Smallest subarray with sum ≥ target (LC 209 · M) — `min_subarray_len`
 - [x] Longest subarray with sum = k, **positives only** (M) — `longest_subarray_sum_k`
 - [x] Max consecutive ones III — flip at most k zeroes (LC 1004 · M) — `longest_ones`
-- [ ] Fruit into baskets (LC 904 · M) — at most 2 distinct; redo of `longest_at_most_k_distinct` on arrays
-- [ ] Binary subarrays with sum (LC 930 · M) — at-most trick: `atMost(k) - atMost(k-1)`
+- [x] Fruit into baskets (LC 904 · M) — at most 2 distinct; redo of `longest_at_most_k_distinct` on arrays — `total_fruit`
+- [x] Binary subarrays with sum (LC 930 · M) — at-most trick: `atMost(k) - atMost(k-1)` — `num_subarrays_with_sum` + `at_most`
 
 ### Prefix sum
 - [ ] Build a prefix-sum array + range sum in O(1) (LC 303 · E)
@@ -237,6 +237,9 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 
 ## 🐞 Fixes to revisit
 
+- [x] `02_arrays/sliding_window.py` — `at_most()` counted `right + left + 1`
+      instead of `right - left + 1`. Fixed 2026-09-24; LC 930 now matches brute
+      force on every binary array up to length 9.
 - [ ] `arrays.py` — the file is almost entirely commented out. Consider
       converting it to functions with a `main()`, like `search.py` and
       `sorting.py`
@@ -255,7 +258,7 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 - [x] Find First and Last Position in Sorted Array
 - [ ] Best Time to Buy and Sell Stock
 - [ ] Maximum Subarray (Kadane)
-- [ ] Longest Substring Without Repeating Characters (sliding window)
+- [x] Longest Substring Without Repeating Characters (sliding window) — `05_strings/strings.py`
 - [ ] Search in Rotated Sorted Array
 - [ ] Sort Colors (Dutch National Flag)
 - [ ] Missing Number
@@ -276,7 +279,7 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 - [x] Binary search with an `answer` variable (bounds/occurrence variants)
 - [x] Sliding window — fixed size (arrays: `sliding_window.py`; strings: `strings.py`)
 - [x] Sliding window — variable size (arrays: `longest_ones`, `longest_subarray_sum_k`; strings: `strings.py`)
-- [ ] At-most-k trick for counting exactly k (on arrays)
+- [x] At-most-k trick for counting exactly k (on arrays) — `at_most` + `num_subarrays_with_sum`
 - [ ] Prefix sum
 - [ ] Prefix sum + hashmap (counts / first-seen index / remainders)
 - [ ] Kadane / running-best scan
@@ -291,25 +294,24 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 **What is genuinely solid:** Python basics across lists, tuples, sets and dicts;
 array traversal and two-pointer work; hashing patterns; binary search (the
 first/last-occurrence and lower/upper-bound variants in `03_searching/search.py`);
-and sliding window, both fixed and variable size, on strings *and* now on arrays.
+and sliding window — now **complete**, fixed and variable size, on strings *and*
+arrays, including the at-most-k counting trick.
 
 **The real gaps, in priority order:**
 
-1. **Finish sliding window** — only 904 (fruit into baskets) and 930 (binary
-   subarrays with sum, the at-most-k trick) are left in Level 4.
-2. **Prefix sum** — unlocks subarray-sum problems, and 560 is the one that shows
+1. **Prefix sum** — unlocks subarray-sum problems, and 560 is the one that shows
    why a window stops working once negatives appear.
-3. **Kadane's algorithm** — one small problem, appears constantly.
-4. **Merge sort** — you already wrote the merge step for two sorted arrays;
+2. **Kadane's algorithm** — one small problem, appears constantly.
+3. **Merge sort** — you already wrote the merge step for two sorted arrays;
    wrapping recursion around it is the natural next step, and it feeds directly
    into Sort List (LeetCode 148) on the linked-list side.
-5. **Modified binary search** (rotated array, peak element) — a direct extension
+4. **Modified binary search** (rotated array, peak element) — a direct extension
    of what `03_searching/search.py` already does.
-6. **2D arrays** — needed before any grid/matrix or graph work.
+5. **2D arrays** — needed before any grid/matrix or graph work.
 
 **Suggested order:**
 
-> 904 + 930 → prefix sum → Kadane → stock (121, 122) → merge sort →
+> prefix sum → Kadane → stock (121, 122) → merge sort →
 > modified binary search → 2D arrays
 
 The week-by-week version of this is in `Phase2_Roadmap.md`.

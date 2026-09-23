@@ -3,14 +3,14 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 30 problems — 17 Easy, 13 Medium, 0 Hard.**
+**Total: 32 problems — 17 Easy, 15 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
 |---|:-:|
 | Arrays & hashing | 7 |
 | Two pointers | 3 |
-| Sliding window | 10 |
+| Sliding window | 12 |
 | Strings | 1 |
 | Binary search | 2 |
 | Linked list | 7 |
@@ -58,6 +58,8 @@ topic. Built by reading the code, not the checklists.
 | 3 | Longest Substring Without Repeating Characters | M | `05_strings/strings.py` → `longest_unique_substring` | ✅ |
 | 424 | Longest Repeating Character Replacement | M | `05_strings/strings.py` → `character_replacement` | ✅ |
 | 340 | Longest Substring with At Most K Distinct Characters 🔒 | M | `05_strings/strings.py` → `longest_at_most_k_distinct` | ✅ |
+| 904 | Fruit Into Baskets | M | `02_arrays/sliding_window.py` → `total_fruit` | ✅ |
+| 930 | Binary Subarrays With Sum | M | `02_arrays/sliding_window.py` → `num_subarrays_with_sum` + `at_most` | ✅ |
 
 ## Strings
 

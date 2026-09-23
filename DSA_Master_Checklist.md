@@ -3,7 +3,7 @@
 **Goal:** solve LeetCode **Medium** problems on your own. Hard problems are out of scope.
 They are listed only where they are well-known next steps, marked ⚪, and they do
 not count toward progress.  
-**Last updated:** 2026-09-19
+**Last updated:** 2026-09-24
 
 **Built by comparing against:** NeetCode Roadmap / NeetCode 150, Striver's A2Z DSA
 Sheet, Blind 75, Grind 75 and LeetCode 75. The topic order below is the order most
@@ -33,7 +33,7 @@ Counts only the core items. ⚪ items are left out.
 | 1.3 | Sorting algorithms | 3 / 9 | 🟡 In progress |
 | 2.1 | Arrays & hashing | 7 / 20 | 🟡 In progress |
 | 2.2 | Two pointers | 4 / 12 | 🟡 In progress |
-| 2.3 | Sliding window | 10 / 12 | 🟢 Strong |
+| 2.3 | Sliding window | 12 / 12 | ✅ Complete |
 | 2.4 | Prefix sum & Kadane | 0 / 10 | 🔴 Not started |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
 | 2.6 | Binary search | 3 / 17 | 🟡 In progress |
@@ -51,16 +51,16 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **47 / 330** (~14%) | |
+| | **Total** | **49 / 330** (~15%) | |
 
 ### Where you stand against the roadmaps
 
 - **Topics started (8 of 23):** Python basics, basic sorting, arrays, two
   pointers, sliding window, basic binary search, strings (two-pointer / window),
   and linked lists.
-- **Your strongest area is sliding window.** It is further along than any other
-  topic: you have both templates, the at-most-k → exactly-k trick, and all three
-  frequency-array matching problems. Most roadmaps place this about 3 topics in, so
+- **Sliding window is finished** — 12 / 12, the first topic you have closed out
+  completely: both templates, the at-most-k → exactly-k trick on strings *and*
+  arrays, and all three frequency-array matching problems. Most roadmaps place this about 3 topics in, so
   you are ahead there.
 - **The biggest gap is breadth.** Stack/queue, recursion, trees, heaps, graphs, DP
   and greedy are **not started**. On NeetCode 150, about **112 of 150** problems (~75%)
@@ -180,9 +180,9 @@ it in about 25–30 minutes.
 - [x] 340 · Longest Substring with At Most K Distinct Characters · M 🔒
 - [x] 209 · Minimum Size Subarray Sum · M
 - [x] 1004 · Max Consecutive Ones III · M
-- [ ] 904 · Fruit Into Baskets · M
+- [x] 904 · Fruit Into Baskets · M (`02_arrays/sliding_window.py` → `total_fruit`)
 - [x] 1423 · Maximum Points You Can Obtain from Cards · M
-- [ ] 930 · Binary Subarrays With Sum · M
+- [x] 930 · Binary Subarrays With Sum · M (`num_subarrays_with_sum` + `at_most`)
 - [x] ⚪ 992 · Subarrays with K Different Integers · H (string version, `count_exactly_k`)
 - [ ] ⚪ 76 · Minimum Window Substring · H
 - [ ] ⚪ 239 · Sliding Window Maximum · H (monotonic deque)
@@ -520,8 +520,10 @@ bridges and articulation points · max flow · advanced geometry.
 
 ## 🐞 Open bugs carried over from the detail files
 
-All fixed as of 2026-09-23:
+All fixed as of 2026-09-24:
 
+- [x] `02_arrays/sliding_window.py` — `at_most()` used `count += right + left + 1`;
+      now `right - left + 1`, the number of subarrays ending at `right`
 - [x] `02_arrays/questions.py:169` — merge loop uses `j < len(arr8)`; should be `len(arr9)`
 - [x] `02_arrays/questions.py:36-38` — move zeroes starts at `range(1, ...)` and swaps in `arr[i]` instead of `arr2[i]`
 - [x] `02_arrays/questions_explained.py:90` — move zeroes still starts at `range(1, ...)`; should start at 0

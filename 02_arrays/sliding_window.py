@@ -1,3 +1,16 @@
+# for right in range(len(nums)):
+
+#     # add right element
+
+#     while window_is_invalid:
+#         # remove left element
+#         left += 1
+
+#     # current window is valid
+#     # update answer
+
+
+
 def max_sum_arrays(nums,k):
     window_sum = 0
 
@@ -133,6 +146,62 @@ def longest_ones(nums, k):
 
     return max_length
 
+
+def total_fruit(fruits):
+
+    left = 0
+    freq = {}
+
+    max_length = 0
+
+    for right in range(len(fruits)):
+
+        if fruits[right] in freq:
+            freq[fruits[right]] += 1
+        else :
+            freq[fruits[right]] = 1
+
+        while len(freq) > 2:
+
+            freq[fruits[left]] -= 1
+
+            if freq[fruits[left]] == 0:
+                del freq[fruits[left]]
+
+            left += 1
+
+        current_length = right - left + 1
+
+        max_length = max(max_length,current_length)
+
+    return max_length
+
+
+def at_most(nums,k):
+
+    if k<0:
+        return 0
+
+    left = 0
+    count = 0
+    window_sum = 0
+
+    for right in range(len(nums)):
+
+        window_sum += nums[right]
+
+        while window_sum > k:
+
+            window_sum -= nums[left]
+            left += 1
+
+        count += right - left + 1
+
+    return count
+
+def num_subarrays_with_sum(nums, goal):
+
+    return at_most(nums,goal) - at_most(nums,goal-1)
 
 
 

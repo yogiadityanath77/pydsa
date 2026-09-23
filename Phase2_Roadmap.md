@@ -53,9 +53,9 @@ completely, and 930 leads straight into prefix sums.
 - [x] Fix `06_linked_list/DLL.py` — `prepend()` should `return True`
 - [x] 209 · Minimum Size Subarray Sum · M
 - [x] 1004 · Max Consecutive Ones III · M
-- [ ] 904 · Fruit Into Baskets · M
+- [x] 904 · Fruit Into Baskets · M — `total_fruit`
 - [x] 1423 · Maximum Points You Can Obtain from Cards · M
-- [ ] 930 · Binary Subarrays With Sum · M
+- [x] 930 · Binary Subarrays With Sum · M — `num_subarrays_with_sum` + `at_most`
 - [ ] Prefix-sum array + O(1) range sum (concept)
 - [ ] 303 · Range Sum Query – Immutable · E
 - [ ] 724 · Find Pivot Index · E
@@ -65,7 +65,10 @@ completely, and 930 leads straight into prefix sums.
 
 **Revision:** two pointers (this is the old batch 5): move zeroes, remove
 duplicates from sorted array, pair sum on a sorted array.  
-**Done when:** sliding window shows 12 / 12 in the master checklist.
+**Done when:** sliding window shows 12 / 12 in the master checklist.  
+**Where you are:** 12 / 12 — sliding window is **closed**. The 4 bugs and all 5
+window problems in this step are done; what remains of Step 1 is the 6 prefix-sum
+items, starting with the concept and 303.
 
 ---
 
