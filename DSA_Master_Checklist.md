@@ -3,7 +3,7 @@
 **Goal:** solve LeetCode **Medium** problems on your own. Hard problems are out of scope.
 They are listed only where they are well-known next steps, marked ⚪, and they do
 not count toward progress.  
-**Last updated:** 2026-09-24
+**Last updated:** 2026-09-26
 
 **Built by comparing against:** NeetCode Roadmap / NeetCode 150, Striver's A2Z DSA
 Sheet, Blind 75, Grind 75 and LeetCode 75. The topic order below is the order most
@@ -34,7 +34,7 @@ Counts only the core items. ⚪ items are left out.
 | 2.1 | Arrays & hashing | 7 / 20 | 🟡 In progress |
 | 2.2 | Two pointers | 4 / 12 | 🟡 In progress |
 | 2.3 | Sliding window | 12 / 12 | ✅ Complete |
-| 2.4 | Prefix sum & Kadane | 0 / 10 | 🔴 Not started |
+| 2.4 | Prefix sum & Kadane | 8 / 10 | 🟡 In progress |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
 | 2.6 | Binary search | 3 / 17 | 🟡 In progress |
 | 2.7 | Strings | 3 / 20 | 🟡 In progress |
@@ -51,22 +51,26 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **49 / 330** (~15%) | |
+| | **Total** | **57 / 330** (~17%) | |
 
 ### Where you stand against the roadmaps
 
-- **Topics started (8 of 23):** Python basics, basic sorting, arrays, two
-  pointers, sliding window, basic binary search, strings (two-pointer / window),
-  and linked lists.
+- **Topics started (9 of 23):** Python basics, basic sorting, arrays, two
+  pointers, sliding window, prefix sum, basic binary search, strings
+  (two-pointer / window), and linked lists.
 - **Sliding window is finished** — 12 / 12, the first topic you have closed out
   completely: both templates, the at-most-k → exactly-k trick on strings *and*
   arrays, and all three frequency-array matching problems. Most roadmaps place this about 3 topics in, so
   you are ahead there.
+- **Prefix sum is done** — 6 / 6 prefix items (303, 724, 560, 525, 974 and the
+  build/range-sum concept) in `02_arrays/prefix_sum.py`, with notes in
+  `02_arrays/prefix_sum.md`. **Kadane is done** in `02_arrays/kadane.py`
+  (53, 152). Only the stock pair (121, 122) is left in 2.4.
 - **The biggest gap is breadth.** Stack/queue, recursion, trees, heaps, graphs, DP
   and greedy are **not started**. On NeetCode 150, about **112 of 150** problems (~75%)
   come from topics you have not started. Most Medium interview questions come
   from trees, graphs, DP and backtracking.
-- **Known-missing foundations:** recursion, merge sort, prefix sum, Kadane,
+- **Known-missing foundations:** recursion, merge sort,
   matrices and stacks. Every roadmap teaches these before trees and graphs.
 - **Blind 75 coverage:** **9 / 75** (Two Sum, Contains Duplicate, Valid Anagram,
   Valid Palindrome, Longest Substring Without Repeating Characters, Longest
@@ -76,7 +80,7 @@ Counts only the core items. ⚪ items are left out.
 
 ### Recommended order from here
 
-> **Finish Phase 2 gaps** (prefix sum + Kadane → stack/queue → modified binary
+> **Finish Phase 2 gaps** (stock 121/122 → stack/queue → modified binary
 > search → merge sort) → **recursion** → **backtracking** → **binary trees** →
 > **BST** → **heaps** → **graphs** → **greedy + intervals** → **1D DP** →
 > **2D DP** → tries, bits and math as you go.
@@ -188,14 +192,14 @@ it in about 25–30 minutes.
 - [ ] ⚪ 239 · Sliding Window Maximum · H (monotonic deque)
 
 ### 2.4 Prefix sum & Kadane
-- [ ] Build a prefix-sum array; range sum in O(1)
-- [ ] 303 · Range Sum Query – Immutable · E
-- [ ] 724 · Find Pivot Index · E
-- [ ] 560 · Subarray Sum Equals K · M (prefix sum + hashmap)
-- [ ] 525 · Contiguous Array · M
-- [ ] 974 · Subarray Sums Divisible by K · M
-- [ ] 53 · Maximum Subarray · M (Kadane)
-- [ ] 152 · Maximum Product Subarray · M
+- [x] Build a prefix-sum array; range sum in O(1) (`02_arrays/prefix_sum.py` → `build_prefix`, `range_sum`)
+- [x] 303 · Range Sum Query – Immutable · E (`NumArray`)
+- [x] 724 · Find Pivot Index · E (`pivot_index`)
+- [x] 560 · Subarray Sum Equals K · M (prefix sum + hashmap) (`subarray_sum`)
+- [x] 525 · Contiguous Array · M (`find_max_length`)
+- [x] 974 · Subarray Sums Divisible by K · M (`subarrays_div_by_k`)
+- [x] 53 · Maximum Subarray · M (Kadane) (`02_arrays/kadane.py` → `max_subarray`)
+- [x] 152 · Maximum Product Subarray · M (`max_product`)
 - [ ] 121 · Best Time to Buy and Sell Stock · E
 - [ ] 122 · Best Time to Buy and Sell Stock II · M
 - [ ] ⚪ 918 · Maximum Sum Circular Subarray · M
@@ -520,7 +524,10 @@ bridges and articulation points · max flow · advanced geometry.
 
 ## 🐞 Open bugs carried over from the detail files
 
-All fixed as of 2026-09-24:
+All fixed as of 2026-09-26:
+
+- [x] `02_arrays/kadane.py` — `max_subarray()` never returned `best`
+- [x] `02_arrays/kadane.py` — `max_product()` set `cur_min = max(...)`; now `min(...)`
 
 - [x] `02_arrays/sliding_window.py` — `at_most()` used `count += right + left + 1`;
       now `right - left + 1`, the number of subarrays ending at `right`

@@ -56,19 +56,20 @@ completely, and 930 leads straight into prefix sums.
 - [x] 904 · Fruit Into Baskets · M — `total_fruit`
 - [x] 1423 · Maximum Points You Can Obtain from Cards · M
 - [x] 930 · Binary Subarrays With Sum · M — `num_subarrays_with_sum` + `at_most`
-- [ ] Prefix-sum array + O(1) range sum (concept)
-- [ ] 303 · Range Sum Query – Immutable · E
-- [ ] 724 · Find Pivot Index · E
-- [ ] 560 · Subarray Sum Equals K · M
-- [ ] 525 · Contiguous Array · M
-- [ ] 974 · Subarray Sums Divisible by K · M
+- [x] Prefix-sum array + O(1) range sum (concept) — `build_prefix`, `range_sum`
+- [x] 303 · Range Sum Query – Immutable · E — `NumArray`
+- [x] 724 · Find Pivot Index · E — `pivot_index`
+- [x] 560 · Subarray Sum Equals K · M — `subarray_sum`
+- [x] 525 · Contiguous Array · M — `find_max_length`
+- [x] 974 · Subarray Sums Divisible by K · M — `subarrays_div_by_k`
 
 **Revision:** two pointers (this is the old batch 5): move zeroes, remove
 duplicates from sorted array, pair sum on a sorted array.  
 **Done when:** sliding window shows 12 / 12 in the master checklist.  
-**Where you are:** 12 / 12 — sliding window is **closed**. The 4 bugs and all 5
-window problems in this step are done; what remains of Step 1 is the 6 prefix-sum
-items, starting with the concept and 303.
+**Where you are:** ✅ **Step 1 complete** (2026-09-25). Sliding window is 12 / 12,
+all 4 bugs are fixed, and all 6 prefix-sum items are done in
+`02_arrays/prefix_sum.py` (notes: `02_arrays/prefix_sum.md`). Next: Step 2,
+starting with 53 (Kadane).
 
 ---
 
@@ -77,8 +78,8 @@ items, starting with the concept and 303.
 *Why now:* binary search is your oldest topic. Refresh it before
 building on it in step 3.
 
-- [ ] 53 · Maximum Subarray · M (Kadane)
-- [ ] 152 · Maximum Product Subarray · M
+- [x] 53 · Maximum Subarray · M (Kadane) — `max_subarray`
+- [x] 152 · Maximum Product Subarray · M — `max_product`
 - [ ] 121 · Best Time to Buy and Sell Stock · E
 - [ ] 122 · Best Time to Buy and Sell Stock II · M
 - [ ] Re-solve from memory: 704 Binary Search, 34 First and Last Position
@@ -89,7 +90,9 @@ building on it in step 3.
 - [ ] 278 · First Bad Version · E
 
 **Revision:** sliding window. Solve 3 and 424 from memory.  
-**Done when:** prefix sum & Kadane shows 10 / 10.
+**Done when:** prefix sum & Kadane shows 10 / 10.  
+**Where you are:** prefix sum & Kadane is at 8 / 10. 53 and 152 are done in
+`02_arrays/kadane.py`; next are 121 and 122, then the binary search refresh.
 
 ---
 

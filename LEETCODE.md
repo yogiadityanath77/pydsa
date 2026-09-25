@@ -3,7 +3,7 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 32 problems — 17 Easy, 15 Medium, 0 Hard.**
+**Total: 39 problems — 19 Easy, 20 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
@@ -11,6 +11,8 @@ topic. Built by reading the code, not the checklists.
 | Arrays & hashing | 7 |
 | Two pointers | 3 |
 | Sliding window | 12 |
+| Prefix sum | 5 |
+| Kadane | 2 |
 | Strings | 1 |
 | Binary search | 2 |
 | Linked list | 7 |
@@ -61,6 +63,27 @@ topic. Built by reading the code, not the checklists.
 | 904 | Fruit Into Baskets | M | `02_arrays/sliding_window.py` → `total_fruit` | ✅ |
 | 930 | Binary Subarrays With Sum | M | `02_arrays/sliding_window.py` → `num_subarrays_with_sum` + `at_most` | ✅ |
 
+## Prefix sum
+
+All in `02_arrays/prefix_sum.py`. Full notes and traces: `02_arrays/prefix_sum.md`.
+
+| # | Problem | Diff | Where | |
+|---|---|:-:|---|:-:|
+| 303 | Range Sum Query — Immutable | E | `NumArray` | ✅ |
+| 724 | Find Pivot Index | E | `pivot_index` | ✅ |
+| 560 | Subarray Sum Equals K | M | `subarray_sum` (prefix sum + hashmap of counts) · brute force `subarray_sum_brute` | ✅ |
+| 525 | Contiguous Array | M | `find_max_length` (0 → −1, first-seen index) | ✅ |
+| 974 | Subarray Sums Divisible by K | M | `subarrays_div_by_k` (remainder as the key) | ✅ |
+
+## Kadane
+
+In `02_arrays/kadane.py`.
+
+| # | Problem | Diff | Where | |
+|---|---|:-:|---|:-:|
+| 53 | Maximum Subarray | M | `max_subarray` · brute force `max_subarray_brute` | ✅ |
+| 152 | Maximum Product Subarray | M | `max_product` (track max **and** min) | ✅ |
+
 ## Strings
 
 | # | Problem | Diff | Where | |
@@ -108,6 +131,14 @@ count as practice, they just don't have a number.
 - Count substrings with at most k distinct — `count_at_most_K`
 - Count substrings with exactly k distinct — `count_exactly_k`
   (the string version of LC 992, which is Hard on arrays)
+
+**Prefix sum** (`02_arrays/prefix_sum.py`)
+- Build a padded prefix array + O(1) range sum — `build_prefix`, `range_sum`
+- 560 stepping stone with a list instead of a dict (O(n²)) — `subarray_sum_list`
+
+**Kadane** (`02_arrays/kadane.py`)
+- Maximum subarray, brute force O(n²) — `max_subarray_brute`
+- Maximum subarray with start/end indices returned — `max_subarray_with_indices`
 
 **Strings** (`05_strings/strings.py`)
 - Palindrome check — `is_palindrome` · most frequent character

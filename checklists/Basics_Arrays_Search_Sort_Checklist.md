@@ -2,14 +2,17 @@
 
 **Current level:** Patterns in progress  
 **Progress:** Python basics and array fundamentals are well covered. Binary search
-and its variants are strong. Basic sorts done. **Sliding window is now done on
-arrays** — all 8 Level 4 window items solved, in `02_arrays/sliding_window.py`. The
-remaining gaps are **prefix sum, Kadane, matrices, modified binary search, and
-merge/quick sort**.  
-**Last updated:** 2026-09-24
+and its variants are strong. Basic sorts done. **Sliding window is done on
+arrays** — all 8 Level 4 window items solved, in `02_arrays/sliding_window.py`.
+**Prefix sum is mostly done** — 303, 724, 560, 525 and 974 in
+`02_arrays/prefix_sum.py` (notes in `02_arrays/prefix_sum.md`). **Kadane is
+done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. The
+remaining gaps are **stock, product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
+sort**.  
+**Last updated:** 2026-09-26
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
-Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`
+Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`
 
 ---
 
@@ -112,13 +115,14 @@ Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding win
 - [ ] Missing number (sum formula and XOR)
 - [ ] Single number — every other element appears twice (XOR)
 - [ ] Longest consecutive sequence
-- [ ] Subarray with a given sum (hashmap of prefix sums)
+- [x] Subarray with a given sum (hashmap of prefix sums) — LC 560, `subarray_sum` in `prefix_sum.py`
 - [ ] Group anagrams
 
 ## 🟡 Level 4 — Arrays: Patterns (in progress)
 
 Practice file: `02_arrays/arrays_level4.py`. Every item below has a stub and tests there,
-in the same order. Sliding window solutions live in `02_arrays/sliding_window.py`.
+in the same order. Sliding window solutions live in `02_arrays/sliding_window.py`;
+prefix sum solutions live in `02_arrays/prefix_sum.py`.
 `[~]` = written but not yet correct — see 🐞 Fixes to revisit. **E / M** = Easy / Medium.
 
 ### Sliding window — fixed size
@@ -134,16 +138,19 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 - [x] Binary subarrays with sum (LC 930 · M) — at-most trick: `atMost(k) - atMost(k-1)` — `num_subarrays_with_sum` + `at_most`
 
 ### Prefix sum
-- [ ] Build a prefix-sum array + range sum in O(1) (LC 303 · E)
-- [ ] Equilibrium / pivot index (LC 724 · E)
-- [ ] Count subarrays with sum k (LC 560 · M) — prefix sum + hashmap of counts
+- [x] Build a prefix-sum array + range sum in O(1) (LC 303 · E) — `build_prefix`, `range_sum`, `NumArray`
+- [x] Equilibrium / pivot index (LC 724 · E) — `pivot_index`
+- [x] Count subarrays with sum k (LC 560 · M) — prefix sum + hashmap of counts — `subarray_sum` (+ `subarray_sum_brute`)
+- [x] Contiguous array (LC 525 · M) — 0 → −1, prefix sum + first-seen index — `find_max_length`
+- [x] Subarray sums divisible by k (LC 974 · M) — remainder as the key — `subarrays_div_by_k`
 - [ ] Longest subarray with sum = k, **with negatives** (M) — prefix sum + first-seen index
+      (same template as 525 — should be quick now)
 - [ ] Product of array except self (LC 238 · M) — prefix and suffix products
 
 ### Kadane's algorithm
-- [ ] Maximum subarray sum (LC 53 · M)
-- [ ] Maximum subarray sum with indices returned (M)
-- [ ] Maximum product subarray (LC 152 · M) — track max **and** min
+- [x] Maximum subarray sum (LC 53 · M) — `max_subarray` in `kadane.py` (+ `max_subarray_brute`)
+- [x] Maximum subarray sum with indices returned (M) — `max_subarray_with_indices`
+- [x] Maximum product subarray (LC 152 · M) — track max **and** min — `max_product`
 
 ### Stock / greedy scan
 - [ ] Best time to buy and sell stock (LC 121 · E) — one pass, running min
@@ -240,6 +247,11 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 - [x] `02_arrays/sliding_window.py` — `at_most()` counted `right + left + 1`
       instead of `right - left + 1`. Fixed 2026-09-24; LC 930 now matches brute
       force on every binary array up to length 9.
+- [x] `02_arrays/kadane.py` — `max_subarray()` had no `return best`. Fixed
+      2026-09-26; matches brute force on 5,000 random arrays
+- [x] `02_arrays/kadane.py` — `max_product()` used `max` for `cur_min`. Fixed
+      2026-09-26; `[-2, 3, -4]` now gives 24 and it matches brute force on 5,000
+      random arrays
 - [ ] `arrays.py` — the file is almost entirely commented out. Consider
       converting it to functions with a `main()`, like `search.py` and
       `sorting.py`
@@ -280,9 +292,9 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 - [x] Sliding window — fixed size (arrays: `sliding_window.py`; strings: `strings.py`)
 - [x] Sliding window — variable size (arrays: `longest_ones`, `longest_subarray_sum_k`; strings: `strings.py`)
 - [x] At-most-k trick for counting exactly k (on arrays) — `at_most` + `num_subarrays_with_sum`
-- [ ] Prefix sum
-- [ ] Prefix sum + hashmap (counts / first-seen index / remainders)
-- [ ] Kadane / running-best scan
+- [x] Prefix sum — `build_prefix`, `NumArray`, `pivot_index`
+- [x] Prefix sum + hashmap (counts / first-seen index / remainders) — 560, 525, 974
+- [x] Kadane / running-best scan — `max_subarray`, `max_subarray_with_indices`, `max_product`
 - [ ] Divide and conquer (merge sort, quick sort)
 - [ ] Binary search on the answer space
 - [ ] Matrix / 2D index manipulation
@@ -294,14 +306,16 @@ in the same order. Sliding window solutions live in `02_arrays/sliding_window.py
 **What is genuinely solid:** Python basics across lists, tuples, sets and dicts;
 array traversal and two-pointer work; hashing patterns; binary search (the
 first/last-occurrence and lower/upper-bound variants in `03_searching/search.py`);
-and sliding window — now **complete**, fixed and variable size, on strings *and*
-arrays, including the at-most-k counting trick.
+sliding window — **complete**, fixed and variable size, on strings *and*
+arrays, including the at-most-k counting trick; and **prefix sum** — all three
+hashmap variants (counts for 560, first-seen index for 525, remainders for 974).
 
 **The real gaps, in priority order:**
 
-1. **Prefix sum** — unlocks subarray-sum problems, and 560 is the one that shows
-   why a window stops working once negatives appear.
-2. **Kadane's algorithm** — one small problem, appears constantly.
+1. **Stock (121, 122)** — the last two items in 2.4; 121 is Kadane-shaped
+   (running min instead of running sum).
+2. **Finish prefix sum** — longest subarray with sum = k (with negatives) and
+   product of array except self (238). Both are small once 525 is solid.
 3. **Merge sort** — you already wrote the merge step for two sorted arrays;
    wrapping recursion around it is the natural next step, and it feeds directly
    into Sort List (LeetCode 148) on the linked-list side.
@@ -311,10 +325,10 @@ arrays, including the at-most-k counting trick.
 
 **Suggested order:**
 
-> prefix sum → Kadane → stock (121, 122) → merge sort →
+> ~~prefix sum~~ → ~~Kadane~~ → stock (121, 122) → merge sort →
 > modified binary search → 2D arrays
 
 The week-by-week version of this is in `Phase2_Roadmap.md`.
 
-**Do not** start trees or graphs until prefix sum and 2D array traversal are
-comfortable — trees and graphs assume both.
+**Do not** start trees or graphs until 2D array traversal is
+comfortable (prefix sum is now covered) — trees and graphs assume both.
