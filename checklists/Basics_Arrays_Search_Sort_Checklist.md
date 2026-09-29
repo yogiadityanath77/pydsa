@@ -6,13 +6,14 @@ and its variants are strong. Basic sorts done. **Sliding window is done on
 arrays** — all 8 Level 4 window items solved, in `02_arrays/sliding_window.py`.
 **Prefix sum is mostly done** — 303, 724, 560, 525 and 974 in
 `02_arrays/prefix_sum.py` (notes in `02_arrays/prefix_sum.md`). **Kadane is
-done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. The
-remaining gaps are **stock, product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
+done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. **Stock is
+done** in `02_arrays/stock.py` — 121 and 122. The
+remaining gaps are **product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
 sort**.  
-**Last updated:** 2026-09-26
+**Last updated:** 2026-09-29
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
-Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`
+Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py`
 
 ---
 
@@ -153,8 +154,8 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 - [x] Maximum product subarray (LC 152 · M) — track max **and** min — `max_product`
 
 ### Stock / greedy scan
-- [ ] Best time to buy and sell stock (LC 121 · E) — one pass, running min
-- [ ] Best time to buy and sell stock II (LC 122 · M) — add every rise
+- [x] Best time to buy and sell stock (LC 121 · E) — one pass, running min — `max_profit` in `stock.py` (+ `max_profit_brute`)
+- [x] Best time to buy and sell stock II (LC 122 · M) — add every rise — `max_profit_ii`
 
 ### 🧭 Which pattern to use
 - **Looking for a minimum** → start the answer at `float('inf')`, then convert it
@@ -244,6 +245,11 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 ## 🐞 Fixes to revisit
 
+- [x] `02_arrays/stock.py` — `max_profit()` started `min_price = float('-inf')`,
+      so it returned `inf`. Fixed 2026-09-29 (`float('inf')`); matches brute
+      force on 5,000 random arrays
+- [x] `02_arrays/stock.py` — `max_profit_brute()` wrote `max[profit, best]`
+      (TypeError). Fixed 2026-09-29
 - [x] `02_arrays/sliding_window.py` — `at_most()` counted `right + left + 1`
       instead of `right - left + 1`. Fixed 2026-09-24; LC 930 now matches brute
       force on every binary array up to length 9.
@@ -268,8 +274,8 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 - [x] Majority Element
 - [x] Binary Search
 - [x] Find First and Last Position in Sorted Array
-- [ ] Best Time to Buy and Sell Stock
-- [ ] Maximum Subarray (Kadane)
+- [x] Best Time to Buy and Sell Stock — `02_arrays/stock.py`
+- [x] Maximum Subarray (Kadane) — `02_arrays/kadane.py`
 - [x] Longest Substring Without Repeating Characters (sliding window) — `05_strings/strings.py`
 - [ ] Search in Rotated Sorted Array
 - [ ] Sort Colors (Dutch National Flag)
@@ -294,7 +300,7 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 - [x] At-most-k trick for counting exactly k (on arrays) — `at_most` + `num_subarrays_with_sum`
 - [x] Prefix sum — `build_prefix`, `NumArray`, `pivot_index`
 - [x] Prefix sum + hashmap (counts / first-seen index / remainders) — 560, 525, 974
-- [x] Kadane / running-best scan — `max_subarray`, `max_subarray_with_indices`, `max_product`
+- [x] Kadane / running-best scan — `max_subarray`, `max_subarray_with_indices`, `max_product`, `max_profit`
 - [ ] Divide and conquer (merge sort, quick sort)
 - [ ] Binary search on the answer space
 - [ ] Matrix / 2D index manipulation
@@ -312,20 +318,18 @@ hashmap variants (counts for 560, first-seen index for 525, remainders for 974).
 
 **The real gaps, in priority order:**
 
-1. **Stock (121, 122)** — the last two items in 2.4; 121 is Kadane-shaped
-   (running min instead of running sum).
-2. **Finish prefix sum** — longest subarray with sum = k (with negatives) and
+1. **Finish prefix sum** — longest subarray with sum = k (with negatives) and
    product of array except self (238). Both are small once 525 is solid.
-3. **Merge sort** — you already wrote the merge step for two sorted arrays;
+2. **Merge sort** — you already wrote the merge step for two sorted arrays;
    wrapping recursion around it is the natural next step, and it feeds directly
    into Sort List (LeetCode 148) on the linked-list side.
-4. **Modified binary search** (rotated array, peak element) — a direct extension
+3. **Modified binary search** (rotated array, peak element) — a direct extension
    of what `03_searching/search.py` already does.
-5. **2D arrays** — needed before any grid/matrix or graph work.
+4. **2D arrays** — needed before any grid/matrix or graph work.
 
 **Suggested order:**
 
-> ~~prefix sum~~ → ~~Kadane~~ → stock (121, 122) → merge sort →
+> ~~prefix sum~~ → ~~Kadane~~ → ~~stock~~ → merge sort →
 > modified binary search → 2D arrays
 
 The week-by-week version of this is in `Phase2_Roadmap.md`.

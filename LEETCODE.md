@@ -3,7 +3,7 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 39 problems — 19 Easy, 20 Medium, 0 Hard.**
+**Total: 41 problems — 20 Easy, 21 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
@@ -13,6 +13,7 @@ topic. Built by reading the code, not the checklists.
 | Sliding window | 12 |
 | Prefix sum | 5 |
 | Kadane | 2 |
+| Stock | 2 |
 | Strings | 1 |
 | Binary search | 2 |
 | Linked list | 7 |
@@ -83,6 +84,15 @@ In `02_arrays/kadane.py`.
 |---|---|:-:|---|:-:|
 | 53 | Maximum Subarray | M | `max_subarray` · brute force `max_subarray_brute` | ✅ |
 | 152 | Maximum Product Subarray | M | `max_product` (track max **and** min) | ✅ |
+
+## Stock
+
+In `02_arrays/stock.py`.
+
+| # | Problem | Diff | Where | |
+|---|---|:-:|---|:-:|
+| 121 | Best Time to Buy and Sell Stock | E | `max_profit` (running min) · brute force `max_profit_brute` | ✅ |
+| 122 | Best Time to Buy and Sell Stock II | M | `max_profit_ii` (add every rise) | ✅ |
 
 ## Strings
 
