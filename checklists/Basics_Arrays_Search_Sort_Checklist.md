@@ -7,13 +7,13 @@ arrays** — all 8 Level 4 window items solved, in `02_arrays/sliding_window.py`
 **Prefix sum is mostly done** — 303, 724, 560, 525 and 974 in
 `02_arrays/prefix_sum.py` (notes in `02_arrays/prefix_sum.md`). **Kadane is
 done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. **Stock is
-done** in `02_arrays/stock.py` — 121 and 122. The
+done** in `02_arrays/stock.py` — 121 and 122 (notes for both in `02_arrays/kadane.md`). The
 remaining gaps are **product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
 sort**.  
 **Last updated:** 2026-09-29
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
-Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py`
+Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`)
 
 ---
 

@@ -1,6 +1,6 @@
 # Kadane's Algorithm & Stock Problems — Complete Notes
 
-> Level 4 — Arrays: Patterns · Code lives in `02_arrays/kadane.py`
+> Level 4 — Arrays: Patterns · Code lives in `02_arrays/kadane.py` (Kadane) and `02_arrays/stock.py` (stock)
 >
 > Read top to bottom to relearn the topic from zero. Every solution in this
 > file was checked against a brute force on thousands of random inputs.
@@ -702,8 +702,8 @@ share each day. Revisit them once you reach the DP level.
 | 53 | Maximum Subarray | M | Kadane | `kadane.py` → `max_subarray` |
 | — | Max subarray with indices | M | Kadane + record start | `kadane.py` → `max_subarray_with_indices` |
 | 152 | Maximum Product Subarray | M | Kadane, max + min | `kadane.py` → `max_product` |
-| 121 | Best Time to Buy and Sell Stock | E | running min | `kadane.py` → `max_profit` |
-| 122 | Best Time to Buy and Sell Stock II | M | add every rise | `kadane.py` → `max_profit_ii` |
+| 121 | Best Time to Buy and Sell Stock | E | running min | `stock.py` → `max_profit` |
+| 122 | Best Time to Buy and Sell Stock II | M | add every rise | `stock.py` → `max_profit_ii` |
 | 2016 | Max Difference Between Increasing Elements | E | running min | ☐ |
 | 1749 | Maximum Absolute Sum of Any Subarray | M | Kadane max + min | ☐ |
 | 918 | Maximum Sum Circular Subarray | M | Kadane + total − min | ☐ |

@@ -65,7 +65,8 @@ Counts only the core items. ⚪ items are left out.
 - **Prefix sum is done** — 6 / 6 prefix items (303, 724, 560, 525, 974 and the
   build/range-sum concept) in `02_arrays/prefix_sum.py`, with notes in
   `02_arrays/prefix_sum.md`. **Kadane is done** in `02_arrays/kadane.py`
-  (53, 152), and **stock is done** in `02_arrays/stock.py` (121, 122). **2.4 is
+  (53, 152), and **stock is done** in `02_arrays/stock.py` (121, 122), with
+  notes for both in `02_arrays/kadane.md`. **2.4 is
   complete** — 10 / 10, the second topic you have closed out.
 - **The biggest gap is breadth.** Stack/queue, recursion, trees, heaps, graphs, DP
   and greedy are **not started**. On NeetCode 150, about **112 of 150** problems (~75%)

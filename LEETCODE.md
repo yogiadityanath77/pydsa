@@ -78,7 +78,7 @@ All in `02_arrays/prefix_sum.py`. Full notes and traces: `02_arrays/prefix_sum.m
 
 ## Kadane
 
-In `02_arrays/kadane.py`.
+In `02_arrays/kadane.py`. Full notes (Kadane and stock): `02_arrays/kadane.md`.
 
 | # | Problem | Diff | Where | |
 |---|---|:-:|---|:-:|
@@ -87,7 +87,7 @@ In `02_arrays/kadane.py`.
 
 ## Stock
 
-In `02_arrays/stock.py`.
+In `02_arrays/stock.py`. Notes: `02_arrays/kadane.md`.
 
 | # | Problem | Diff | Where | |
 |---|---|:-:|---|:-:|
