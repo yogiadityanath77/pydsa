@@ -10,7 +10,7 @@ done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. **Sto
 done** in `02_arrays/stock.py` — 121 and 122 (notes for both in `02_arrays/kadane.md`). The
 remaining gaps are **product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
 sort**.  
-**Last updated:** 2026-09-29
+**Last updated:** 2026-09-30
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
 Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`)
@@ -189,14 +189,14 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 - [x] Linear search
 - [x] Binary search (iterative)
-- [ ] Binary search (recursive)
+- [x] Binary search (recursive) — `binary_search_recursive`; O(log n) stack space
 - [x] First occurrence of a target
 - [x] Last occurrence of a target
 - [x] Lower bound (first index with `arr[i] >= target`)
-- [x] Upper bound (last index with `arr[i] <= target`)
-- [ ] Count occurrences of a value using first + last occurrence
+- [x] Upper bound — now written as the standard form: first index with `arr[i] > target` (same as `bisect_right`)
+- [x] Count occurrences of a value using first + last occurrence — `count_occurances`
 - [ ] Floor and ceiling of a number in a sorted array
-- [ ] Search insert position
+- [x] Search insert position (LC 35) — `search_insert`, which is just `lower_bound`
 
 ## 🟡 Searching — Level B: Modified Binary Search
 
@@ -245,6 +245,10 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 ## 🐞 Fixes to revisit
 
+- [x] `03_searching/search.py` — `mid = left + right // 2` in `binary_search`,
+      `first_occurrence`, `lower_bound` and `upper_bound` (`//` binds tighter than
+      `+`, so it hung or raised IndexError). Fixed 2026-09-30 to
+      `(left + right) // 2`; all 8 functions match `bisect` on 5,000 random inputs
 - [x] `02_arrays/stock.py` — `max_profit()` started `min_price = float('-inf')`,
       so it returned `inf`. Fixed 2026-09-29 (`float('inf')`); matches brute
       force on 5,000 random arrays

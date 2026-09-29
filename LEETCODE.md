@@ -3,7 +3,7 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 41 problems — 20 Easy, 21 Medium, 0 Hard.**
+**Total: 42 problems — 21 Easy, 21 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
@@ -15,7 +15,7 @@ topic. Built by reading the code, not the checklists.
 | Kadane | 2 |
 | Stock | 2 |
 | Strings | 1 |
-| Binary search | 2 |
+| Binary search | 3 |
 | Linked list | 7 |
 
 ---
@@ -105,7 +105,8 @@ In `02_arrays/stock.py`. Notes: `02_arrays/kadane.md`.
 | # | Problem | Diff | Where | |
 |---|---|:-:|---|:-:|
 | 704 | Binary Search | E | `03_searching/search.py` → `binary_search` | ✅ |
-| 34 | Find First and Last Position of Element in Sorted Array | M | `03_searching/search.py` → `binary_search_first_occurrence` + `binary_search_last_occurrence` | ✅ |
+| 34 | Find First and Last Position of Element in Sorted Array | M | `03_searching/search.py` → `search_range` (`first_occurrence` + `last_occurrence`) | ✅ |
+| 35 | Search Insert Position | E | `03_searching/search.py` → `search_insert` (= `lower_bound`) | ✅ |
 
 ## Linked list
 
@@ -154,7 +155,8 @@ count as practice, they just don't have a number.
 - Palindrome check — `is_palindrome` · most frequent character
 
 **Searching** (`03_searching/search.py`)
-- Linear search · lower bound · upper bound
+- Linear search · lower bound · upper bound · count occurrences (`count_occurances`)
+- Recursive binary search — `binary_search_recursive`
 
 **Sorting** (`04_sorting/sorting.py`)
 - Bubble sort · selection sort · insertion sort

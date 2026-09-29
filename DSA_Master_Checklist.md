@@ -3,7 +3,7 @@
 **Goal:** solve LeetCode **Medium** problems on your own. Hard problems are out of scope.
 They are listed only where they are well-known next steps, marked ⚪, and they do
 not count toward progress.  
-**Last updated:** 2026-09-29
+**Last updated:** 2026-09-30
 
 **Built by comparing against:** NeetCode Roadmap / NeetCode 150, Striver's A2Z DSA
 Sheet, Blind 75, Grind 75 and LeetCode 75. The topic order below is the order most
@@ -36,7 +36,7 @@ Counts only the core items. ⚪ items are left out.
 | 2.3 | Sliding window | 12 / 12 | ✅ Complete |
 | 2.4 | Prefix sum & Kadane | 10 / 10 | ✅ Complete |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
-| 2.6 | Binary search | 3 / 17 | 🟡 In progress |
+| 2.6 | Binary search | 5 / 17 | 🟡 In progress |
 | 2.7 | Strings | 3 / 20 | 🟡 In progress |
 | 2.8 | Linked list | 9 / 24 | 🟡 In progress |
 | 2.9 | Stack & queue (incl. monotonic stack) | 0 / 19 | 🔴 Not started |
@@ -51,7 +51,7 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **59 / 330** (~18%) | |
+| | **Total** | **61 / 330** (~18%) | |
 
 ### Where you stand against the roadmaps
 
@@ -83,7 +83,7 @@ Counts only the core items. ⚪ items are left out.
 
 ### Recommended order from here
 
-> **Finish Phase 2 gaps** (binary search refresh → stack/queue → modified binary
+> **Finish Phase 2 gaps** (rest of the binary search refresh: 69, 278 → stack/queue → modified binary
 > search → merge sort) → **recursion** → **backtracking** → **binary trees** →
 > **BST** → **heaps** → **graphs** → **greedy + intervals** → **1D DP** →
 > **2D DP** → tries, bits and math as you go.
@@ -221,8 +221,8 @@ it in about 25–30 minutes.
 - [x] 704 · Binary Search · E
 - [x] 34 · Find First and Last Position of Element in Sorted Array · M
 - [x] Lower bound / upper bound templates
-- [ ] Recursive binary search
-- [ ] 35 · Search Insert Position · E
+- [x] Recursive binary search (`03_searching/search.py` → `binary_search_recursive`)
+- [x] 35 · Search Insert Position · E (`search_insert`, which is `lower_bound`)
 - [ ] 69 · Sqrt(x) · E
 - [ ] 278 · First Bad Version · E
 - [ ] 33 · Search in Rotated Sorted Array · M
@@ -527,8 +527,12 @@ bridges and articulation points · max flow · advanced geometry.
 
 ## 🐞 Open bugs carried over from the detail files
 
-All fixed as of 2026-09-29:
+All fixed as of 2026-09-30:
 
+- [x] `03_searching/search.py` — `mid = left + right // 2` in `binary_search`,
+      `first_occurrence`, `lower_bound` and `upper_bound` (`//` binds tighter than
+      `+`, so it hung or raised IndexError). Fixed 2026-09-30 to
+      `(left + right) // 2`; all 8 functions match `bisect` on 5,000 random inputs
 - [x] `02_arrays/stock.py` — `max_profit()` started `min_price = float('-inf')`, so
       `min()` never moved and it returned `inf`; now `float('inf')`
 - [x] `02_arrays/stock.py` — `max_profit_brute()` used `max[profit, best]`

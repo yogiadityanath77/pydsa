@@ -82,10 +82,10 @@ building on it in step 3.
 - [x] 152 · Maximum Product Subarray · M — `max_product`
 - [x] 121 · Best Time to Buy and Sell Stock · E — `max_profit` in `02_arrays/stock.py` (+ `max_profit_brute`)
 - [x] 122 · Best Time to Buy and Sell Stock II · M — `max_profit_ii`
-- [ ] Re-solve from memory: 704 Binary Search, 34 First and Last Position
-- [ ] Re-solve from memory: lower bound and upper bound
-- [ ] Recursive binary search
-- [ ] 35 · Search Insert Position · E
+- [x] Re-solve from memory: 704 Binary Search, 34 First and Last Position — `binary_search`, `search_range` in `03_searching/search.py`
+- [x] Re-solve from memory: lower bound and upper bound — `lower_bound`, `upper_bound`
+- [x] Recursive binary search — `binary_search_recursive`
+- [x] 35 · Search Insert Position · E — `search_insert` (= `lower_bound`)
 - [ ] 69 · Sqrt(x) · E
 - [ ] 278 · First Bad Version · E
 
@@ -93,8 +93,13 @@ building on it in step 3.
 **Done when:** prefix sum & Kadane shows 10 / 10.  
 **Where you are:** ✅ prefix sum & Kadane is **10 / 10** (2026-09-29). 53 and 152
 are in `02_arrays/kadane.py`; 121 and 122 are in `02_arrays/stock.py`, both
-verified against brute force (notes: `02_arrays/kadane.md`). Next: the binary search refresh (704 and 34 from
-memory, then lower/upper bound, recursive, 35, 69, 278).
+verified against brute force (notes: `02_arrays/kadane.md`).  
+Binary search refresh (2026-09-30): `03_searching/search.py` is rewritten from
+memory to return values (`binary_search`, `first_occurrence`, `last_occurrence`,
+`search_range`, `count_occurances`, `lower_bound`, `upper_bound`). After fixing
+the `(left + right) // 2` midpoint, all of them match `bisect` on 5,000 random
+inputs. `binary_search_recursive` and 35 (`search_insert`) are done too, so
+Step 2 is at 8 / 10. Next: 69 (Sqrt(x)) and 278 (First Bad Version).
 
 ---
 
