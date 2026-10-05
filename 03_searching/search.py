@@ -178,4 +178,65 @@ def binary_search_recursive(nums, target, left , right):
 arr = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
 binary_search_recursive(arr, 23, 0, len(arr) - 1)
 
+#When binary search ends without finding the target, right is on the last smaller element and left is on the first bigger element. The target belongs at left.
+def search_insert_v2(nums, target):
+    left = 0 
+    right = len(nums) - 1
 
+    while left <= right :
+
+        mid = (left + right) // 2
+
+        if nums[mid] == target:
+            return mid
+
+        elif nums[mid] < target:
+            left = mid + 1
+
+        else:
+            right = mid - 1
+
+    return left
+
+def my_sqrt(x):
+
+    left = 0
+    right = x
+    answer = 0
+
+    while left <= right :
+
+        mid =  (left + right) // 2
+
+        if mid*mid <= x:
+            answer = mid
+            left = mid + 1
+
+        else:
+            right = mid - 1
+
+    return answer
+# Time O(log x) · Space O(1)
+
+first_bad = 4
+
+def is_bad_version(version):
+    return version >= first_bad
+
+def first_bad_version(n):
+    left = 1                # versions are numbered 1..n (not 0..n-1)
+    right = n
+    answer = n # problem guarantees at least one bad version
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if is_bad_version(mid):
+            answer = mid
+            right = mid - 1
+
+        else :
+            left = mid + 1
+
+    return answer
+#left lands on the first ✓, just like in search_insert_v2. So return left works here too.

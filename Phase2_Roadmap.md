@@ -86,8 +86,8 @@ building on it in step 3.
 - [x] Re-solve from memory: lower bound and upper bound — `lower_bound`, `upper_bound`
 - [x] Recursive binary search — `binary_search_recursive`
 - [x] 35 · Search Insert Position · E — `search_insert` (= `lower_bound`)
-- [ ] 69 · Sqrt(x) · E
-- [ ] 278 · First Bad Version · E
+- [x] 69 · Sqrt(x) · E — `my_sqrt`
+- [x] 278 · First Bad Version · E — `first_bad_version`
 
 **Revision:** sliding window. Solve 3 and 424 from memory.  
 **Done when:** prefix sum & Kadane shows 10 / 10.  
@@ -99,15 +99,20 @@ memory to return values (`binary_search`, `first_occurrence`, `last_occurrence`,
 `search_range`, `count_occurances`, `lower_bound`, `upper_bound`). After fixing
 the `(left + right) // 2` midpoint, all of them match `bisect` on 5,000 random
 inputs. `binary_search_recursive` and 35 (`search_insert`) are done too, so
-Step 2 is at 8 / 10. Next: 69 (Sqrt(x)) and 278 (First Bad Version).
+Step 2 was at 8 / 10.  
+✅ **Step 2 complete** (2026-10-04). `my_sqrt` (69), `first_bad_version` (278)
+and the alternative `search_insert_v2` all pass brute-force checks after
+switching to `while left <= right` (the rule: if you move by `mid ± 1` and save
+an `answer`, the loop must be `<=`). Next: Step 3, starting with 33 (Search in
+Rotated Sorted Array).
 
 ---
 
 ## Step 3 · Modified binary search
 
-- [ ] 33 · Search in Rotated Sorted Array · M
+- [x] 33 · Search in Rotated Sorted Array · M — `search_rotated` in `03_searching/modified_binary_search.py`
 - [ ] 81 · Search in Rotated Sorted Array II · M
-- [ ] 153 · Find Minimum in Rotated Sorted Array · M
+- [x] 153 · Find Minimum in Rotated Sorted Array · M — `find_min` (first element `<= nums[-1]`)
 - [ ] 162 · Find Peak Element · M
 - [ ] 540 · Single Element in a Sorted Array · M
 - [ ] Binary search on the answer (concept: monotonic yes/no over a range)
@@ -118,7 +123,11 @@ Step 2 is at 8 / 10. Next: 69 (Sqrt(x)) and 278 (First Bad Version).
 
 **Revision:** sorting (the old batch 7). Write bubble, selection and insertion
 sort from scratch.  
-**Done when:** binary search shows 17 / 17.
+**Done when:** binary search shows 17 / 17.  
+**Where you are** (2026-10-05): 2 / 10. 33 (`search_rotated`) and 153
+(`find_min`) are done in `03_searching/modified_binary_search.py`, both checked
+on 20,000 random rotated arrays. Next: 81 (rotated with duplicates), then 162
+and 540. Notes for the Step 2 binary search are in `03_searching/search.md`.
 
 ---
 

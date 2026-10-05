@@ -3,7 +3,7 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 42 problems — 21 Easy, 21 Medium, 0 Hard.**
+**Total: 46 problems — 23 Easy, 23 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
@@ -15,7 +15,7 @@ topic. Built by reading the code, not the checklists.
 | Kadane | 2 |
 | Stock | 2 |
 | Strings | 1 |
-| Binary search | 3 |
+| Binary search | 7 |
 | Linked list | 7 |
 
 ---
@@ -102,11 +102,17 @@ In `02_arrays/stock.py`. Notes: `02_arrays/kadane.md`.
 
 ## Binary search
 
+Full notes for `search.py`: `03_searching/search.md`.
+
 | # | Problem | Diff | Where | |
 |---|---|:-:|---|:-:|
 | 704 | Binary Search | E | `03_searching/search.py` → `binary_search` | ✅ |
 | 34 | Find First and Last Position of Element in Sorted Array | M | `03_searching/search.py` → `search_range` (`first_occurrence` + `last_occurrence`) | ✅ |
-| 35 | Search Insert Position | E | `03_searching/search.py` → `search_insert` (= `lower_bound`) | ✅ |
+| 35 | Search Insert Position | E | `03_searching/search.py` → `search_insert` (= `lower_bound`) · `search_insert_v2` (plain binary search, return `left`) | ✅ |
+| 69 | Sqrt(x) | E | `03_searching/search.py` → `my_sqrt` (binary search on the answer: largest `mid` with `mid*mid <= x`) | ✅ |
+| 278 | First Bad Version | E | `03_searching/search.py` → `first_bad_version` (first `mid` that is bad) | ✅ |
+| 153 | Find Minimum in Rotated Sorted Array | M | `03_searching/modified_binary_search.py` → `find_min` (first element `<= nums[-1]`) | ✅ |
+| 33 | Search in Rotated Sorted Array | M | `03_searching/modified_binary_search.py` → `search_rotated` (one half is always sorted; check if the target fits in it) | ✅ |
 
 ## Linked list
 

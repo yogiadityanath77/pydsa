@@ -3,7 +3,7 @@
 **Goal:** solve LeetCode **Medium** problems on your own. Hard problems are out of scope.
 They are listed only where they are well-known next steps, marked ⚪, and they do
 not count toward progress.  
-**Last updated:** 2026-09-30
+**Last updated:** 2026-10-05
 
 **Built by comparing against:** NeetCode Roadmap / NeetCode 150, Striver's A2Z DSA
 Sheet, Blind 75, Grind 75 and LeetCode 75. The topic order below is the order most
@@ -36,7 +36,7 @@ Counts only the core items. ⚪ items are left out.
 | 2.3 | Sliding window | 12 / 12 | ✅ Complete |
 | 2.4 | Prefix sum & Kadane | 10 / 10 | ✅ Complete |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
-| 2.6 | Binary search | 5 / 17 | 🟡 In progress |
+| 2.6 | Binary search | 9 / 17 | 🟡 In progress |
 | 2.7 | Strings | 3 / 20 | 🟡 In progress |
 | 2.8 | Linked list | 9 / 24 | 🟡 In progress |
 | 2.9 | Stack & queue (incl. monotonic stack) | 0 / 19 | 🔴 Not started |
@@ -51,7 +51,7 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **61 / 330** (~18%) | |
+| | **Total** | **65 / 330** (~20%) | |
 
 ### Where you stand against the roadmaps
 
@@ -74,17 +74,18 @@ Counts only the core items. ⚪ items are left out.
   from trees, graphs, DP and backtracking.
 - **Known-missing foundations:** recursion, merge sort,
   matrices and stacks. Every roadmap teaches these before trees and graphs.
-- **Blind 75 coverage:** **12 / 75** (Two Sum, Contains Duplicate, Valid Anagram,
+- **Blind 75 coverage:** **14 / 75** (Two Sum, Contains Duplicate, Valid Anagram,
   Valid Palindrome, Longest Substring Without Repeating Characters, Longest
   Repeating Character Replacement, Reverse Linked List, Linked List Cycle, Remove
   Nth Node From End, Maximum Subarray, Maximum Product Subarray, Best Time to Buy
-  and Sell Stock). Permutation in String, Find All Anagrams and Binary Search
+  and Sell Stock, Search in Rotated Sorted Array, Find Minimum in Rotated Sorted
+  Array). Permutation in String, Find All Anagrams and Binary Search
   are done too, and they appear on NeetCode 150 and Grind 75.
 
 ### Recommended order from here
 
-> **Finish Phase 2 gaps** (rest of the binary search refresh: 69, 278 → stack/queue → modified binary
-> search → merge sort) → **recursion** → **backtracking** → **binary trees** →
+> **Finish Phase 2 gaps** (modified binary search → merge sort → linked list → two pointers
+> → strings → matrix → stack/queue) → **recursion** → **backtracking** → **binary trees** →
 > **BST** → **heaps** → **graphs** → **greedy + intervals** → **1D DP** →
 > **2D DP** → tries, bits and math as you go.
 
@@ -223,11 +224,11 @@ it in about 25–30 minutes.
 - [x] Lower bound / upper bound templates
 - [x] Recursive binary search (`03_searching/search.py` → `binary_search_recursive`)
 - [x] 35 · Search Insert Position · E (`search_insert`, which is `lower_bound`)
-- [ ] 69 · Sqrt(x) · E
-- [ ] 278 · First Bad Version · E
-- [ ] 33 · Search in Rotated Sorted Array · M
+- [x] 69 · Sqrt(x) · E (`my_sqrt`)
+- [x] 278 · First Bad Version · E (`first_bad_version`)
+- [x] 33 · Search in Rotated Sorted Array · M (`03_searching/modified_binary_search.py` → `search_rotated`)
 - [ ] 81 · Search in Rotated Sorted Array II · M
-- [ ] 153 · Find Minimum in Rotated Sorted Array · M
+- [x] 153 · Find Minimum in Rotated Sorted Array · M (`03_searching/modified_binary_search.py` → `find_min`)
 - [ ] 162 · Find Peak Element · M
 - [ ] 540 · Single Element in a Sorted Array · M
 - [ ] Binary search on the answer (concept: monotonic predicate over a range)
@@ -527,8 +528,16 @@ bridges and articulation points · max flow · advanced geometry.
 
 ## 🐞 Open bugs carried over from the detail files
 
-All fixed as of 2026-09-30:
+All fixed as of 2026-10-05:
 
+- [x] `03_searching/modified_binary_search.py:16` — in `search_rotated`, the
+      sorted LEFT half used `biggest = nums[right]`. Fixed 2026-10-05 to
+      `nums[mid]`; passes 20,000 random rotated arrays
+- [x] `03_searching/search.py` — `my_sqrt`, `first_bad_version` and
+      `search_insert_v2` looped with `while left < right` while moving by
+      `mid ± 1` and saving an `answer`, so they stopped one candidate early.
+      Fixed 2026-10-04 to `while left <= right`; `search_insert_v2` now returns
+      `mid` instead of `target`. All three match brute force
 - [x] `03_searching/search.py` — `mid = left + right // 2` in `binary_search`,
       `first_occurrence`, `lower_bound` and `upper_bound` (`//` binds tighter than
       `+`, so it hung or raised IndexError). Fixed 2026-09-30 to

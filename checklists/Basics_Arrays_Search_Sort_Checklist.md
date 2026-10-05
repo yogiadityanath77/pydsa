@@ -10,10 +10,10 @@ done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. **Sto
 done** in `02_arrays/stock.py` — 121 and 122 (notes for both in `02_arrays/kadane.md`). The
 remaining gaps are **product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
 sort**.  
-**Last updated:** 2026-09-30
+**Last updated:** 2026-10-05
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
-Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`)
+Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`); binary search in `03_searching/search.py` (notes: `03_searching/search.md`), rotated arrays in `03_searching/modified_binary_search.py`
 
 ---
 
@@ -200,16 +200,16 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 ## 🟡 Searching — Level B: Modified Binary Search
 
-- [ ] Search in a rotated sorted array
-- [ ] Find the minimum in a rotated sorted array
+- [x] Search in a rotated sorted array (LC 33) — `search_rotated` in `modified_binary_search.py`
+- [x] Find the minimum in a rotated sorted array (LC 153) — `find_min`
 - [ ] Find a peak element
 - [ ] Find the single non-duplicate element in a sorted array
 - [ ] Search in a sorted 2D matrix
 
 ## 🔵 Searching — Level C: Binary Search on the Answer
 
-- [ ] Integer square root
-- [ ] First bad version
+- [x] Integer square root (LC 69) — `my_sqrt`
+- [x] First bad version (LC 278) — `first_bad_version`
 - [ ] Koko eating bananas / minimum capacity problems
 - [ ] Split array into k parts minimising the largest sum
 
@@ -245,6 +245,14 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 ## 🐞 Fixes to revisit
 
+- [x] `03_searching/modified_binary_search.py:16` — in `search_rotated`, the
+      sorted LEFT half used `biggest = nums[right]`. Fixed 2026-10-05 to
+      `nums[mid]`; passes 20,000 random rotated arrays
+- [x] `03_searching/search.py` — `my_sqrt`, `first_bad_version` and
+      `search_insert_v2` looped with `while left < right` while moving by
+      `mid ± 1` and saving an `answer`, so they stopped one candidate early.
+      Fixed 2026-10-04 to `while left <= right`; `search_insert_v2` now returns
+      `mid` instead of `target`. All three match brute force
 - [x] `03_searching/search.py` — `mid = left + right // 2` in `binary_search`,
       `first_occurrence`, `lower_bound` and `upper_bound` (`//` binds tighter than
       `+`, so it hung or raised IndexError). Fixed 2026-09-30 to
@@ -281,7 +289,7 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 - [x] Best Time to Buy and Sell Stock — `02_arrays/stock.py`
 - [x] Maximum Subarray (Kadane) — `02_arrays/kadane.py`
 - [x] Longest Substring Without Repeating Characters (sliding window) — `05_strings/strings.py`
-- [ ] Search in Rotated Sorted Array
+- [x] Search in Rotated Sorted Array — `03_searching/modified_binary_search.py`
 - [ ] Sort Colors (Dutch National Flag)
 - [ ] Missing Number
 - [ ] Single Number
