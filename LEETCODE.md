@@ -3,7 +3,7 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 46 problems — 23 Easy, 23 Medium, 0 Hard.**
+**Total: 48 problems — 23 Easy, 25 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
@@ -15,7 +15,7 @@ topic. Built by reading the code, not the checklists.
 | Kadane | 2 |
 | Stock | 2 |
 | Strings | 1 |
-| Binary search | 7 |
+| Binary search | 9 |
 | Linked list | 7 |
 
 ---
@@ -111,8 +111,10 @@ Full notes for `search.py`: `03_searching/search.md`.
 | 35 | Search Insert Position | E | `03_searching/search.py` → `search_insert` (= `lower_bound`) · `search_insert_v2` (plain binary search, return `left`) | ✅ |
 | 69 | Sqrt(x) | E | `03_searching/search.py` → `my_sqrt` (binary search on the answer: largest `mid` with `mid*mid <= x`) | ✅ |
 | 278 | First Bad Version | E | `03_searching/search.py` → `first_bad_version` (first `mid` that is bad) | ✅ |
-| 153 | Find Minimum in Rotated Sorted Array | M | `03_searching/modified_binary_search.py` → `find_min` (first element `<= nums[-1]`) | ✅ |
+| 153 | Find Minimum in Rotated Sorted Array | M | `03_searching/modified_binary_search.py` → `find_min` (first element `<= nums[-1]`) · `find_min2` (compare with `nums[right]`, `right = mid`) | ✅ |
 | 33 | Search in Rotated Sorted Array | M | `03_searching/modified_binary_search.py` → `search_rotated` (one half is always sorted; check if the target fits in it) | ✅ |
+| 162 | Find Peak Element | M | `03_searching/modified_binary_search.py` → `find_peak_element` (first index where the slope goes down) | ✅ |
+| 540 | Single Element in a Sorted Array | M | `03_searching/modified_binary_search.py` → `single_non_duplicate` (even index; first pair that doesn't match) | ✅ |
 
 ## Linked list
 

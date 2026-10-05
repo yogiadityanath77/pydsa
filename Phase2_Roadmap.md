@@ -113,8 +113,8 @@ Rotated Sorted Array).
 - [x] 33 · Search in Rotated Sorted Array · M — `search_rotated` in `03_searching/modified_binary_search.py`
 - [ ] 81 · Search in Rotated Sorted Array II · M
 - [x] 153 · Find Minimum in Rotated Sorted Array · M — `find_min` (first element `<= nums[-1]`)
-- [ ] 162 · Find Peak Element · M
-- [ ] 540 · Single Element in a Sorted Array · M
+- [x] 162 · Find Peak Element · M — `find_peak_element` (first index where the slope goes down)
+- [x] 540 · Single Element in a Sorted Array · M — `single_non_duplicate` (stand on even indices, find the first broken pair)
 - [ ] Binary search on the answer (concept: monotonic yes/no over a range)
 - [ ] 875 · Koko Eating Bananas · M
 - [ ] 1011 · Capacity To Ship Packages Within D Days · M
@@ -124,10 +124,15 @@ Rotated Sorted Array).
 **Revision:** sorting (the old batch 7). Write bubble, selection and insertion
 sort from scratch.  
 **Done when:** binary search shows 17 / 17.  
-**Where you are** (2026-10-05): 2 / 10. 33 (`search_rotated`) and 153
+**Where you are** (2026-10-06): 4 / 10. 33 (`search_rotated`) and 153
 (`find_min`) are done in `03_searching/modified_binary_search.py`, both checked
-on 20,000 random rotated arrays. Next: 81 (rotated with duplicates), then 162
-and 540. Notes for the Step 2 binary search are in `03_searching/search.md`.
+on 20,000 random rotated arrays. `find_min2` (the `right = mid` version of 153)
+is correct too.  
+162 (`find_peak_element`) and 540 (`single_non_duplicate`) are done too, both
+checked on 20,000 random cases after fixing an `=`/`==` typo, `// 10`, `num`
+for `nums`, and a `return` inside the loop. Next: 81 (rotated with duplicates),
+then binary search on the answer (875 Koko first). Notes for the
+Step 2 binary search are in `03_searching/search.md`.
 
 ---
 

@@ -3,7 +3,7 @@
 **Goal:** solve LeetCode **Medium** problems on your own. Hard problems are out of scope.
 They are listed only where they are well-known next steps, marked ⚪, and they do
 not count toward progress.  
-**Last updated:** 2026-10-05
+**Last updated:** 2026-10-06
 
 **Built by comparing against:** NeetCode Roadmap / NeetCode 150, Striver's A2Z DSA
 Sheet, Blind 75, Grind 75 and LeetCode 75. The topic order below is the order most
@@ -36,7 +36,7 @@ Counts only the core items. ⚪ items are left out.
 | 2.3 | Sliding window | 12 / 12 | ✅ Complete |
 | 2.4 | Prefix sum & Kadane | 10 / 10 | ✅ Complete |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
-| 2.6 | Binary search | 9 / 17 | 🟡 In progress |
+| 2.6 | Binary search | 11 / 17 | 🟡 In progress |
 | 2.7 | Strings | 3 / 20 | 🟡 In progress |
 | 2.8 | Linked list | 9 / 24 | 🟡 In progress |
 | 2.9 | Stack & queue (incl. monotonic stack) | 0 / 19 | 🔴 Not started |
@@ -51,7 +51,7 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **65 / 330** (~20%) | |
+| | **Total** | **67 / 330** (~20%) | |
 
 ### Where you stand against the roadmaps
 
@@ -229,8 +229,8 @@ it in about 25–30 minutes.
 - [x] 33 · Search in Rotated Sorted Array · M (`03_searching/modified_binary_search.py` → `search_rotated`)
 - [ ] 81 · Search in Rotated Sorted Array II · M
 - [x] 153 · Find Minimum in Rotated Sorted Array · M (`03_searching/modified_binary_search.py` → `find_min`)
-- [ ] 162 · Find Peak Element · M
-- [ ] 540 · Single Element in a Sorted Array · M
+- [x] 162 · Find Peak Element · M (`find_peak_element`)
+- [x] 540 · Single Element in a Sorted Array · M (`single_non_duplicate`)
 - [ ] Binary search on the answer (concept: monotonic predicate over a range)
 - [ ] 875 · Koko Eating Bananas · M
 - [ ] 1011 · Capacity To Ship Packages Within D Days · M
@@ -528,8 +528,13 @@ bridges and articulation points · max flow · advanced geometry.
 
 ## 🐞 Open bugs carried over from the detail files
 
-All fixed as of 2026-10-05:
+All fixed as of 2026-10-06:
 
+- [x] `03_searching/modified_binary_search.py` — `single_non_duplicate` had
+      `if mid = ...` (SyntaxError that blocked the whole file). Fixed 2026-10-06
+- [x] `03_searching/modified_binary_search.py` — `find_peak_element` had `// 10`,
+      `num` for `nums`, and `return answer` inside the loop. Fixed 2026-10-06;
+      both pass 20,000 random cases
 - [x] `03_searching/modified_binary_search.py:16` — in `search_rotated`, the
       sorted LEFT half used `biggest = nums[right]`. Fixed 2026-10-05 to
       `nums[mid]`; passes 20,000 random rotated arrays

@@ -10,7 +10,7 @@ done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. **Sto
 done** in `02_arrays/stock.py` — 121 and 122 (notes for both in `02_arrays/kadane.md`). The
 remaining gaps are **product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
 sort**.  
-**Last updated:** 2026-10-05
+**Last updated:** 2026-10-06
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
 Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`); binary search in `03_searching/search.py` (notes: `03_searching/search.md`), rotated arrays in `03_searching/modified_binary_search.py`
@@ -202,8 +202,8 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 - [x] Search in a rotated sorted array (LC 33) — `search_rotated` in `modified_binary_search.py`
 - [x] Find the minimum in a rotated sorted array (LC 153) — `find_min`
-- [ ] Find a peak element
-- [ ] Find the single non-duplicate element in a sorted array
+- [x] Find a peak element (LC 162) — `find_peak_element`
+- [x] Find the single non-duplicate element in a sorted array (LC 540) — `single_non_duplicate`
 - [ ] Search in a sorted 2D matrix
 
 ## 🔵 Searching — Level C: Binary Search on the Answer
@@ -245,6 +245,11 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 ## 🐞 Fixes to revisit
 
+- [x] `03_searching/modified_binary_search.py` — `single_non_duplicate` had
+      `if mid = ...` (SyntaxError that blocked the whole file). Fixed 2026-10-06
+- [x] `03_searching/modified_binary_search.py` — `find_peak_element` had `// 10`,
+      `num` for `nums`, and `return answer` inside the loop. Fixed 2026-10-06;
+      both pass 20,000 random cases
 - [x] `03_searching/modified_binary_search.py:16` — in `search_rotated`, the
       sorted LEFT half used `biggest = nums[right]`. Fixed 2026-10-05 to
       `nums[mid]`; passes 20,000 random rotated arrays

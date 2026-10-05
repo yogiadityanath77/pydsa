@@ -59,3 +59,62 @@ def find_min(nums):
     return nums[answer]
 
 # Time O(log n) · Space O(1)
+
+def find_min2(nums):
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] > nums[right]:
+            left = mid + 1
+        else:
+            right = mid           # keep mid: it might be the minimum
+    return nums[left]
+
+def find_peak_element(nums):
+
+    left = 0
+    right = len(nums) - 1
+    answer = len(nums) - 1 
+    
+    while left <= right :
+        
+        mid = (left + right) // 2
+
+        if mid == len(nums) - 1 or nums[mid] > nums[mid + 1]:
+ # going DOWN at mid (the last element always counts as going down)
+            # -> a peak is at mid or to its left
+            answer = mid   # mid could be the peak, save it
+            right = mid - 1 # look LEFT
+
+        else :
+# going UP at mid -> keep climbing, a peak is to the right
+            left = mid + 1
+
+    return answer
+# Time O(log n) · Space O(1)
+
+def single_non_duplicate(nums):
+
+    left = 0
+    right = len(nums) - 1
+    answer = len(nums) -1 
+
+    while left <= right :
+
+        mid = (left + right ) // 2
+
+        if mid % 2 == 1:
+            mid -= 1 # always stand on an EVEN index (start of a pair)
+
+        if mid == len(nums) - 1 or nums[mid] != nums[mid + 1]:
+# pair is broken here -> single element is at mid or to the left
+            answer = mid
+            right = mid - 1
+
+        else:
+            # nums[mid] == nums[mid + 1]: a healthy pair -> single is to the right
+            left = mid + 2          # skip the whole pair (keeps left even)
+
+    return nums[answer]
+        
