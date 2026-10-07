@@ -115,9 +115,9 @@ Rotated Sorted Array).
 - [x] 153 · Find Minimum in Rotated Sorted Array · M — `find_min` (first element `<= nums[-1]`)
 - [x] 162 · Find Peak Element · M — `find_peak_element` (first index where the slope goes down)
 - [x] 540 · Single Element in a Sorted Array · M — `single_non_duplicate` (stand on even indices, find the first broken pair)
-- [ ] Binary search on the answer (concept: monotonic yes/no over a range)
-- [ ] 875 · Koko Eating Bananas · M
-- [ ] 1011 · Capacity To Ship Packages Within D Days · M
+- [x] Binary search on the answer (concept: monotonic yes/no over a range) — the check is a helper: `hours_needed`, `days_needed`
+- [x] 875 · Koko Eating Bananas · M — `min_eating_speed` (+ `min_eating_speed_brute`)
+- [x] 1011 · Capacity To Ship Packages Within D Days · M — `ship_within_days` (+ `ship_within_days_brute`)
 - [ ] 1482 · Minimum Number of Days to Make m Bouquets · M
 - [ ] 981 · Time Based Key-Value Store · M
 
@@ -130,9 +130,14 @@ on 20,000 random rotated arrays. `find_min2` (the `right = mid` version of 153)
 is correct too.  
 162 (`find_peak_element`) and 540 (`single_non_duplicate`) are done too, both
 checked on 20,000 random cases after fixing an `=`/`==` typo, `// 10`, `num`
-for `nums`, and a `return` inside the loop. Next: 81 (rotated with duplicates),
-then binary search on the answer (875 Koko first). Notes for the
-Step 2 binary search are in `03_searching/search.md`.
+for `nums`, and a `return` inside the loop.  
+**2026-10-08: 7 / 10.** Binary search on the answer is started: 875
+(`min_eating_speed`) and 1011 (`ship_within_days`) are done, each with a
+yes/no helper (`hours_needed`, `days_needed`) and a brute-force version. Both
+pass the LeetCode examples and match brute force on 20,000 random cases.
+Left: 81 (rotated with duplicates), 1482 (bouquets — same pattern, search on
+days) and 981 (time-based key-value store). Notes for the Step 2 binary search
+are in `03_searching/search.md`.
 
 ---
 

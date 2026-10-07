@@ -3,7 +3,7 @@
 **Goal:** solve LeetCode **Medium** problems on your own. Hard problems are out of scope.
 They are listed only where they are well-known next steps, marked ⚪, and they do
 not count toward progress.  
-**Last updated:** 2026-10-06
+**Last updated:** 2026-10-08
 
 **Built by comparing against:** NeetCode Roadmap / NeetCode 150, Striver's A2Z DSA
 Sheet, Blind 75, Grind 75 and LeetCode 75. The topic order below is the order most
@@ -36,7 +36,7 @@ Counts only the core items. ⚪ items are left out.
 | 2.3 | Sliding window | 12 / 12 | ✅ Complete |
 | 2.4 | Prefix sum & Kadane | 10 / 10 | ✅ Complete |
 | 2.5 | Matrix / 2D arrays | 0 / 8 | 🔴 Not started |
-| 2.6 | Binary search | 11 / 17 | 🟡 In progress |
+| 2.6 | Binary search | 14 / 17 | 🟡 In progress |
 | 2.7 | Strings | 3 / 20 | 🟡 In progress |
 | 2.8 | Linked list | 9 / 24 | 🟡 In progress |
 | 2.9 | Stack & queue (incl. monotonic stack) | 0 / 19 | 🔴 Not started |
@@ -51,7 +51,7 @@ Counts only the core items. ⚪ items are left out.
 | 4.4 | Dynamic programming — 1D | 0 / 14 | 🔴 Not started |
 | 4.5 | Dynamic programming — 2D / grid / strings | 0 / 16 | 🔴 Not started |
 | 4.6 | Bit manipulation & math | 0 / 14 | 🔴 Not started |
-| | **Total** | **67 / 330** (~20%) | |
+| | **Total** | **70 / 330** (~21%) | |
 
 ### Where you stand against the roadmaps
 
@@ -231,9 +231,9 @@ it in about 25–30 minutes.
 - [x] 153 · Find Minimum in Rotated Sorted Array · M (`03_searching/modified_binary_search.py` → `find_min`)
 - [x] 162 · Find Peak Element · M (`find_peak_element`)
 - [x] 540 · Single Element in a Sorted Array · M (`single_non_duplicate`)
-- [ ] Binary search on the answer (concept: monotonic predicate over a range)
-- [ ] 875 · Koko Eating Bananas · M
-- [ ] 1011 · Capacity To Ship Packages Within D Days · M
+- [x] Binary search on the answer (concept: monotonic predicate over a range) — `hours_needed` / `days_needed` as the yes/no check
+- [x] 875 · Koko Eating Bananas · M (`03_searching/modified_binary_search.py` → `min_eating_speed`)
+- [x] 1011 · Capacity To Ship Packages Within D Days · M (`ship_within_days`)
 - [ ] 1482 · Minimum Number of Days to Make m Bouquets · M
 - [ ] 981 · Time Based Key-Value Store · M
 - [ ] ⚪ 410 · Split Array Largest Sum · H

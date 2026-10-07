@@ -117,4 +117,80 @@ def single_non_duplicate(nums):
             left = mid + 2          # skip the whole pair (keeps left even)
 
     return nums[answer]
-        
+
+# LC 875 · Koko Eating Bananas · M
+def hours_needed(piles, k):
+    total = 0
+    for pile in piles:
+        total += pile // k          # full hours
+        if pile % k != 0:
+            total += 1              # leftover bananas need one more hour
+    return total
+# Time O(n)
+def min_eating_speed_brute(piles, h):
+    k = 1
+    while hours_needed(piles, k) > h:   # try 1, 2, 3, ... until one works
+        k += 1
+    return k
+# Time O(n * max(piles))
+def min_eating_speed(piles, h):
+
+    left = 1                        # slowest possible speed
+    right = max(piles)              # fast enough: every pile takes 1 hour
+    answer = right
+
+    while left <= right:
+
+        mid = (left + right) // 2   # a candidate SPEED, not an index
+
+        if hours_needed(piles, mid) <= h:
+            answer = mid            # speed mid works -> save it
+            right = mid - 1         # try SLOWER
+        else:
+            left = mid + 1          # too slow -> must go faster
+
+    return answer
+
+# Time O(n log m), m = max(piles) · Space O(1)
+
+# LC 1011 · Capacity To Ship Packages Within D Days · M
+def days_needed(weights, capacity):
+    # load packages IN ORDER; when the next one doesn't fit, start a new day
+    days = 1
+    load = 0
+    for w in weights:
+        if load + w > capacity:
+            days += 1               # ship is full -> next day
+            load = 0
+        load += w
+    return days
+ 
+# Time O(n)  (assumes capacity >= max(weights), which the range guarantees)
+
+def ship_within_days_brute(weights, days):
+    capacity = max(weights)
+    while days_needed(weights, capacity) > days:
+        capacity += 1
+    return capacity
+ 
+# Time O(n * (sum - max))
+
+def ship_within_days(weights, days):
+ 
+    left = max(weights)             # smallest possible: the heaviest package must fit
+    right = sum(weights)            # always works: everything in one day
+    answer = right
+ 
+    while left <= right:
+ 
+        mid = (left + right) // 2   # a candidate CAPACITY
+ 
+        if days_needed(weights, mid) <= days:
+            answer = mid            # works -> save it
+            right = mid - 1         # try a SMALLER ship
+        else:
+            left = mid + 1          # too small -> need a bigger ship
+ 
+    return answer
+ 
+# Time O(n log(sum)) · Space O(1)

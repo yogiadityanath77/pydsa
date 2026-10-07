@@ -10,10 +10,10 @@ done** in `02_arrays/kadane.py` — 53, the with-indices version, and 152. **Sto
 done** in `02_arrays/stock.py` — 121 and 122 (notes for both in `02_arrays/kadane.md`). The
 remaining gaps are **product-except-self, longest sum = k with negatives, matrices, modified binary search, and merge/quick
 sort**.  
-**Last updated:** 2026-10-06
+**Last updated:** 2026-10-08
 
 Companion files: `Linked_List_Python_Checklist.md`, `Strings_Python_Checklist.md`  
-Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`); binary search in `03_searching/search.py` (notes: `03_searching/search.md`), rotated arrays in `03_searching/modified_binary_search.py`
+Level 4 practice file: `02_arrays/arrays_level4.py` (stubs + tests); sliding window solutions in `02_arrays/sliding_window.py`; prefix sum solutions in `02_arrays/prefix_sum.py`; Kadane in `02_arrays/kadane.py`; stock in `02_arrays/stock.py` (notes: `02_arrays/kadane.md`); binary search in `03_searching/search.py` (notes: `03_searching/search.md`), rotated arrays and binary search on the answer in `03_searching/modified_binary_search.py`
 
 ---
 
@@ -210,7 +210,7 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 
 - [x] Integer square root (LC 69) — `my_sqrt`
 - [x] First bad version (LC 278) — `first_bad_version`
-- [ ] Koko eating bananas / minimum capacity problems
+- [x] Koko eating bananas / minimum capacity problems (LC 875, 1011) — `min_eating_speed`, `ship_within_days` (+ brute-force versions)
 - [ ] Split array into k parts minimising the largest sum
 
 > **Note:** overflow-safe midpoint (`mid = left + (right - left) // 2`) does not
@@ -319,7 +319,7 @@ prefix sum solutions live in `02_arrays/prefix_sum.py`.
 - [x] Prefix sum + hashmap (counts / first-seen index / remainders) — 560, 525, 974
 - [x] Kadane / running-best scan — `max_subarray`, `max_subarray_with_indices`, `max_product`, `max_profit`
 - [ ] Divide and conquer (merge sort, quick sort)
-- [ ] Binary search on the answer space
+- [x] Binary search on the answer space — `my_sqrt`, `min_eating_speed`, `ship_within_days`
 - [ ] Matrix / 2D index manipulation
 
 ---

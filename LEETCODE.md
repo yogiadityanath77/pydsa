@@ -3,7 +3,7 @@
 Every LeetCode problem that is actually solved somewhere in this repo, grouped by
 topic. Built by reading the code, not the checklists.
 
-**Total: 48 problems — 23 Easy, 25 Medium, 0 Hard.**
+**Total: 50 problems — 23 Easy, 27 Medium, 0 Hard.**
 ✅ = verified correct · ⚠️ = solved but has a known bug (see 🐞 in the checklists)
 
 | Topic | Solved |
@@ -15,7 +15,7 @@ topic. Built by reading the code, not the checklists.
 | Kadane | 2 |
 | Stock | 2 |
 | Strings | 1 |
-| Binary search | 9 |
+| Binary search | 11 |
 | Linked list | 7 |
 
 ---
@@ -115,6 +115,8 @@ Full notes for `search.py`: `03_searching/search.md`.
 | 33 | Search in Rotated Sorted Array | M | `03_searching/modified_binary_search.py` → `search_rotated` (one half is always sorted; check if the target fits in it) | ✅ |
 | 162 | Find Peak Element | M | `03_searching/modified_binary_search.py` → `find_peak_element` (first index where the slope goes down) | ✅ |
 | 540 | Single Element in a Sorted Array | M | `03_searching/modified_binary_search.py` → `single_non_duplicate` (even index; first pair that doesn't match) | ✅ |
+| 875 | Koko Eating Bananas | M | `03_searching/modified_binary_search.py` → `min_eating_speed` (binary search on the speed, `hours_needed` as the check) · brute force `min_eating_speed_brute` | ✅ |
+| 1011 | Capacity To Ship Packages Within D Days | M | `03_searching/modified_binary_search.py` → `ship_within_days` (search `max(weights)..sum(weights)`, `days_needed` as the check) · brute force `ship_within_days_brute` | ✅ |
 
 ## Linked list
 
